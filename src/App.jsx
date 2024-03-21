@@ -38,7 +38,7 @@ function App() {
 
   // Global State to Toogle Popup from Home Page and Search Page
   const [togglePopup, setTogglePopup] = useState(false);
-  console.log(togglePopup);
+  // console.log(togglePopup);
 
   useEffect(() => {
     setTimeout(() => {

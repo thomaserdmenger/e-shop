@@ -9,26 +9,22 @@ const DetailsPage = () => {
   // Counter für Produktanzahl:
   const [count, setCount] = useState(1);
 
-  // state für gefundenes Produkt
+  // state für gefundenes Produkt:
   const [singleProduct, setSingleProduct] = useState();
 
-  // globalen Products-Fetch importieren:
+  // Context des globalen Products-Fetchs:
   const { productsData } = useContext(fetchProductsContext);
-  console.log(productsData);
 
-  // ID des Links
+  // ID des Links:
   const { id } = useParams();
-  console.log(id);
 
-  // Link-ID in globalem Products-Fetch finden
+  // Link-ID in globalem Products-Fetch finden:
   useEffect(() => {
-    // productsData.products.map((item) => console.log(item.id));
     const find = productsData?.products?.find(
       (item) => Number(item.id) === Number(id)
     );
     setSingleProduct(find);
   }, [productsData]);
-  console.log(singleProduct);
 
   // Funktion, um Produkt für Warenkorb abzuziehen bis 1 (+1 ist Callback-Function im Return):
   const subItem = () => {
@@ -42,6 +38,7 @@ const DetailsPage = () => {
   return (
     <section className="product">
       <BackButton />
+
       <h2 className="product-heading">{singleProduct?.title}</h2>
 
       {/* Produktkarte: */}
@@ -110,7 +107,7 @@ const DetailsPage = () => {
           </div>
         </div>
 
-        {/* Rating-Star: */}
+        {/* Rating + Star: */}
         <div className="product-rating">
           <svg
             width="16"
@@ -134,7 +131,7 @@ const DetailsPage = () => {
           <p>{singleProduct?.rating}</p>
         </div>
 
-        {/* Stock und Price: */}
+        {/* Stock + Price: */}
         <div className="product-price">
           <p>{singleProduct?.stock} pieces in stock</p>
           <h2>$ {singleProduct?.price}</h2>
@@ -151,6 +148,7 @@ const DetailsPage = () => {
       <div className="product-btn">
         <Link className="btn">Add to Cart</Link>
       </div>
+
       <Navbar />
     </section>
   );

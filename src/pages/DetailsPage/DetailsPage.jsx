@@ -18,11 +18,12 @@ const DetailsPage = () => {
 
   // ID des Links
   const { id } = useParams();
+  console.log(id);
 
   // Link-ID in globalem Products-Fetch finden
-  // # hier werden noch keine Daten in find abgespeichert - checken
   useEffect(() => {
-    const find = productsData.products.find(
+    // productsData.products.map((item) => console.log(item.id));
+    const find = productsData?.products?.find(
       (item) => Number(item.id) === Number(id)
     );
     setSingleProduct(find);
@@ -41,16 +42,16 @@ const DetailsPage = () => {
   return (
     <section className="product">
       <BackButton />
-      <h2 className="product-heading">Formal Shirt</h2>
+      <h2 className="product-heading">{singleProduct?.title}</h2>
 
       {/* Produktkarte: */}
       <article className="product-card">
-        <img src="/images/products/fragrance.jpeg" alt="formal shirt" />
-        <div className="products-title-count">
-          <h2>Formal Shirt</h2>
+        <img src={singleProduct?.thumbnail} alt={singleProduct?.title} />
+        <div className="product-title-count">
+          <h2>{singleProduct?.title}</h2>
 
           {/* Products-Counter: */}
-          <div className="products-count">
+          <div className="product-count">
             {/* Minus-Icon - onclick -1 bis max. 1: */}
             <svg
               onClick={subItem}
@@ -130,24 +131,20 @@ const DetailsPage = () => {
               </clipPath>
             </defs>
           </svg>
-          <p>4.5</p>
+          <p>{singleProduct?.rating}</p>
         </div>
 
         {/* Stock und Price: */}
         <div className="product-price">
-          <p>X pieces in stock</p>
-          <h2>$ XX.XX</h2>
+          <p>{singleProduct?.stock} pieces in stock</p>
+          <h2>$ {singleProduct?.price}</h2>
         </div>
       </article>
 
       {/* Product Description: */}
       <article className="product-description">
         <h2>Description</h2>
-        <p>
-          XXX Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
-          recusandae facere vitae in enim necessitatibus voluptates dolorem
-          officiis praesentium officia!
-        </p>
+        <p>{singleProduct?.description}</p>
       </article>
 
       {/* Add to Cart Button: */}

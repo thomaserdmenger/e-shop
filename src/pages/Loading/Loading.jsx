@@ -1,12 +1,12 @@
 import "./Loading.css";
-import FetchCaregories from "../../components/FetchCaregories/FetchCaregories";
+import FetchCategories from "../../components/FetchCategories/FetchCategories";
 import FetchProducts from "../../components/FetchProducts/FetchProducts";
 
 const Loading = () => {
   return (
     <>
       <h1>Loading</h1>
-      <FetchCaregories />
+      <FetchCategories />
       <FetchProducts />
     </>
   );

@@ -1,0 +1,8 @@
+h1 {
+  color: var(--color-heading-darkgray);
+}
+
+.search-filter {
+  display: flex;
+  gap: 1rem;
+}

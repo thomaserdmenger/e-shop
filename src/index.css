@@ -13,3 +13,21 @@ img {
   margin-inline: auto;
   min-height: 100vh;
 }
+
+:root {
+  /* brand */
+  --color-darkblue: #364fd4;
+
+  /* gray colors */
+  --color-heading-darkgray: #1e2126;
+  --color-filterwords-gray: #5c6574;
+  /* --color-onboarding-subtext-and-rating-and-detailpage-plus-bg-gray */
+  --color-gray1: #828b9a;
+  /* --color-text-viewall-search-sortby-detailpage--gray */
+  --color-gray2: #b9c1cc;
+  /*   --color-detailpage-minus-bg--gray */
+  --color-gray3: #cad1d9;
+  /*   --color-searchbar-and-picture-bg-gray */
+  --color-gray4: #f0f3f8;
+  --color-white: #ffffff;
+}

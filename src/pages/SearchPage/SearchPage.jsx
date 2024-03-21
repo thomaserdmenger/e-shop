@@ -17,7 +17,7 @@ const SearchPage = () => {
       <Sort />
       <RenderProducts />
       <Navbar />
-      <FilterPopup />
+      {/* <FilterPopup /> */}
     </>
   );
 };

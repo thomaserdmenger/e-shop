@@ -11,7 +11,8 @@ import {
   fetchProductsContext,
   fetchCategoriesContext,
   userInputContext,
-  darkModeContext
+  darkModeContext,
+  togglePopupContext
 } from "./context/Context";
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   // console.log(darkMode);
 
+  // Global State to Toogle Popup from Home Page and Search Page
+  const [togglePopup, setTogglePopup] = useState(false);
+  console.log(togglePopup);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(!loading);
@@ -50,20 +55,23 @@ function App() {
             value={{ categoriesData, setCategoriesData }}>
             <userInputContext.Provider value={{ userInput, setUserInput }}>
               <darkModeContext.Provider value={{ darkMode, setDarkMode }}>
-                {loading ? (
-                  <Loading />
-                ) : (
-                  <BrowserRouter>
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/loading" element={<Loading />} />
-                      <Route path="/onboarding" element={<Onboarding />} />
-                      <Route path="/search" element={<SearchPage />} />
-                      <Route path="/details/:id" element={<DetailsPage />} />
-                      <Route path="/popup" element={<PopupPageTemp />} />
-                    </Routes>
-                  </BrowserRouter>
-                )}
+                <togglePopupContext.Provider
+                  value={{ togglePopup, setTogglePopup }}>
+                  {loading ? (
+                    <Loading />
+                  ) : (
+                    <BrowserRouter>
+                      <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/loading" element={<Loading />} />
+                        <Route path="/onboarding" element={<Onboarding />} />
+                        <Route path="/search" element={<SearchPage />} />
+                        <Route path="/details/:id" element={<DetailsPage />} />
+                        <Route path="/popup" element={<PopupPageTemp />} />
+                      </Routes>
+                    </BrowserRouter>
+                  )}
+                </togglePopupContext.Provider>
               </darkModeContext.Provider>
             </userInputContext.Provider>
           </fetchCategoriesContext.Provider>

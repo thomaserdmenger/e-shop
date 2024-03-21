@@ -1,7 +1,15 @@
 import "./FilterButton.css";
+import { togglePopupContext } from "../../context/Context";
+import { useContext, useEffect } from "react";
 
 const FilterButton = () => {
-  return <h1>FilterButton</h1>;
+  const { togglePopup, setTogglePopup } = useContext(togglePopupContext);
+
+  return (
+    <>
+      <button onClick={() => setTogglePopup(!togglePopup)}>Filter</button>
+    </>
+  );
 };
 
 export default FilterButton;

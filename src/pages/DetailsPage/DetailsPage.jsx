@@ -1,19 +1,35 @@
 import "./DetailsPage.css";
 import BackButton from "../../components/BackButton/BackButton";
 import Navbar from "../../components/Navbar/Navbar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { fetchProductsContext } from "../../context/Context";
 
 const DetailsPage = () => {
   // Counter für Produktanzahl:
   const [count, setCount] = useState(1);
 
   // state für gefundenes Produkt
-  const [productData, setProductData] = useState();
+  const [singleProduct, setSingleProduct] = useState();
 
-  // globalen Products-Fetch importieren
+  // globalen Products-Fetch importieren:
+  const { productsData } = useContext(fetchProductsContext);
+  console.log(productsData);
 
-  // Funktion, um Produkt abzuziehen bis 1:
+  // ID des Links
+  const { id } = useParams();
+
+  // Link-ID in globalem Products-Fetch finden
+  // # hier werden noch keine Daten in find abgespeichert - checken
+  useEffect(() => {
+    const find = productsData.products.find(
+      (item) => Number(item.id) === Number(id)
+    );
+    setSingleProduct(find);
+  }, [productsData]);
+  console.log(singleProduct);
+
+  // Funktion, um Produkt für Warenkorb abzuziehen bis 1 (+1 ist Callback-Function im Return):
   const subItem = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -21,19 +37,6 @@ const DetailsPage = () => {
       window.alert("Gib mindestens ein Produkt ein");
     }
   };
-
-  // ID des Links
-  const { id } = useParams();
-
-  // Link-ID in globalem Products-Fetch finden
-  useEffect(
-    () => {
-      // find - method;
-    },
-    [
-      // abhängig vom Fetch-State?
-    ]
-  );
 
   return (
     <section className="product">

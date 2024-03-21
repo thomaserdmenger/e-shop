@@ -1,3 +1,30 @@
+@font-face {
+  font-family: poppins-medium;
+  src: url(/fonts/Poppins-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: poppins-regular;
+  src: url(/fonts/Poppins-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: poppins-semibold;
+  src: url(/fonts/Poppins-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: poppins-bold;
+  src: url(/fonts/Poppins-Bold.ttf);
+  font-weight: 700;
+}
+
+html {
+  font-family: poppins-regular;
+  font-size: 12px;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -30,4 +57,39 @@ img {
   /*   --color-searchbar-and-picture-bg-gray */
   --color-gray4: #f0f3f8;
   --color-white: #ffffff;
+}
+
+h1 {
+  font-family: poppins-bold;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-family: poppins-semibold;
+}
+
+h3 {
+  font-family: poppins-semibold;
+  font-size: 1rem;
+}
+
+h4 {
+  font-family: poppins-semibold;
+  font-size: 0.875rem;
+}
+
+.btn {
+  font-family: poppins-semibold;
+  font-size: 1rem;
+  background-color: var(--color-darkblue);
+  color: var(--color-white);
+  border-radius: 15px;
+  padding: 0.9375rem 2.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }

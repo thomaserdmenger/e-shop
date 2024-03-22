@@ -1,5 +1,5 @@
 .product {
-  padding: 0 1.5rem;
+  padding: 3.125rem 1.5rem;
 }
 
 .product p {
@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-/* Produkt Card Area: */
+/* Product Card Area: */
 .product-card {
   border-radius: 12px;
   overflow: hidden;
@@ -35,18 +35,22 @@
   padding: 0 1rem;
 }
 
-.products-title-count,
+.product-title-count,
 .product-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.products-count,
+.product-count,
 .product-rating {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.product-count svg {
+  cursor: pointer;
 }
 
 .product-rating {
@@ -58,6 +62,8 @@
   font-family: poppins-bold;
   font-size: 1.75rem;
   font-weight: 700;
+
+  margin-bottom: 2rem;
 }
 
 /* Product Description Area */

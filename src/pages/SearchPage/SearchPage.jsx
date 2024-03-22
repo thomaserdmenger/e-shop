@@ -30,25 +30,65 @@ const SearchPage = () => {
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
-  // console.log(catVal);
+  console.log(catVal);
 
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");
-  // console.log(priceVal);
+  console.log(priceVal);
 
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
-  // console.log(brandsVal);
+  console.log(brandsVal);
 
-  // filter Products-Data
+  // filter all products
   useEffect(() => {
-    console.log(catVal);
     const filter = productsData?.products?.filter(
-      (item) => item.category === catVal
+      (item) =>
+        item.category === catVal ||
+        (priceVal === 20 ? item.price > 0 && item.price <= priceVal : "") ||
+        // (priceVal === 50 && item.price > 20.01 && item.price <= priceVal) ||
+        // (item.price > 50.01 && item.price <= priceVal) ||
+        // item.price > 100.01 ||
+        item.brand === brandsVal
+
+      // item.category === catVal && item.price > 0 && item.price <= priceVal //--> läuft ohne Zeilenumbruch
+      // item.category === catVal //--> läuft
+
+      // * einzelne Filter:
+      // item.category === catVal||
+      // (item.price > 0 && item.price <= priceVal) ||
+      // (item.price > 20.01 && item.price <= priceVal) ||
+      // (item.price > 50.01 && item.price <= priceVal) ||
+      // item.price > 100.01 ||
+      // item.brand === brandsVal
+
+      // category
+      // brand
+      // price20
+      // price50
+      // price100
+      // price100.01
+
+      // category + price20
+      // category + price50
+      // category + price100
+      // category + price100.01
+
+      // brand + price20
+      // brand + price50
+      // brand + price100
+      // brand + price100.01
+
+      // category + brand
+
+      // category + price20 + brand
+      // category + price50 + brand
+      // category + price100 + brand
+      // category + price100.01 + brand
     );
     setFilteredData(filter);
     // console.log(filter);
-  }, [catVal]);
+  }, [catVal, priceVal, brandsVal]);
   console.log(filteredData);
 
   return (

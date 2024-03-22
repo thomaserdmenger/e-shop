@@ -5,11 +5,10 @@ import { fetchProductsContext } from "../../context/Context";
 import { Link } from "react-router-dom";
 
 const RenderProducts = ({ filteredData }) => {
-  console.log(filteredData);
+  // console.log(filteredData);
 
   // context for fetching all products
   const { productsData, setProductsData } = useContext(fetchProductsContext);
-  // -- stattdessen einen globalen State, in den immer alle gefilterten und gesuchten Ergebnisse reingespeichert werden, und den dann hier in einen eigenen state speichern (damit er sich nicht selbst überschreibt) und dessen Daten hier ausgeben lassen? (analog zu PokeDex?)
 
   // state for first 20 loaded products
   const [loadItems, setLoadItems] = useState(20);

@@ -96,7 +96,7 @@ a {
   color: unset;
 }
 
-/* Styling Render Divs (Search + Home Popular) */
+/* ! Styling Render Divs (Search + Home Popular) */
 .render {
   padding: 1.25rem;
 
@@ -104,7 +104,7 @@ a {
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 
-  padding-bottom: 7rem;
+  padding-bottom: 4rem;
 }
 
 .render article {
@@ -120,13 +120,6 @@ a {
   padding-bottom: 1rem;
 }
 
-/* -- img mit padding und unterschiedlichen Größen  */
-/* .render article img {
-  padding: 1rem;
-  border-radius: 12px;
-} */
-
-/* -- img ohne padding und auf gleicher Höhe */
 .render article img {
   height: 13rem;
   width: 100%;
@@ -155,4 +148,10 @@ a {
 .render-title p {
   color: var(--color-darkblue);
   font-family: poppins-semibold;
+}
+
+.render-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7rem;
 }

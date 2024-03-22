@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  padding-top: 5rem;
 }
 
 .onboard h2 {
@@ -21,9 +22,12 @@
 .onboard img {
   margin-bottom: 2rem;
 }
+.onboard dotlottie-player {
+  margin-bottom: 4rem;
+}
 
 .btn a {
   display: block;
-
   text-align: center;
+  margin-bottom: 2rem;
 }

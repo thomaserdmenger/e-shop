@@ -1,0 +1,18 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  margin-inline: 2rem;
+
+  bottom: 0;
+  gap: 2rem;
+}
+
+.herz {
+  color: gray;
+  width: 20px;
+}
+svg {
+  fill: black;
+}

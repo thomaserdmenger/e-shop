@@ -1,0 +1,44 @@
+.popup {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-inline: 1rem;
+  padding-block-start: 2.5rem;
+}
+
+.popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 4.5rem;
+}
+
+.popup__categories,
+.popup__price {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block-end: 3rem;
+}
+
+.popup__button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+}
+
+.popup__button--selected {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: var(--color-darkblue);
+  color: var(--color-white);
+}
+
+.popup__button::first-letter,
+.popup__button--selected::first-letter {
+  text-transform: uppercase;
+}

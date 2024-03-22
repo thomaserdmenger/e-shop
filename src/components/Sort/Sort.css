@@ -1,0 +1,13 @@
+.sort {
+  display: flex;
+  gap: 0.625rem;
+  padding: 0.625rem 0;
+}
+
+.sort p {
+  color: var(--color-gray2);
+}
+
+.sort select {
+  color: var(--color-darkblue);
+}

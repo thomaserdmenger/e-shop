@@ -6,19 +6,19 @@ import { Link, useParams } from "react-router-dom";
 import { fetchProductsContext } from "../../context/Context";
 
 const DetailsPage = () => {
-  // Counter für Produktanzahl:
+  // counter for product count:
   const [count, setCount] = useState(1);
 
-  // state für gefundenes Produkt:
+  // state for single product details:
   const [singleProduct, setSingleProduct] = useState();
 
-  // Context des globalen Products-Fetchs:
+  // context for global product fetch:
   const { productsData } = useContext(fetchProductsContext);
 
-  // ID des Links:
+  // ID of link:
   const { id } = useParams();
 
-  // Link-ID in globalem Products-Fetch finden:
+  // find link-id in global fetch:
   useEffect(() => {
     const find = productsData?.products?.find(
       (item) => Number(item.id) === Number(id)
@@ -26,7 +26,7 @@ const DetailsPage = () => {
     setSingleProduct(find);
   }, [productsData]);
 
-  // Funktion, um Produkt für Warenkorb abzuziehen bis 1 (+1 ist Callback-Function im Return):
+  // function for subtracting one item in couter (adding as callback-function in render):
   const subItem = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -41,15 +41,15 @@ const DetailsPage = () => {
 
       <h2 className="product-heading">{singleProduct?.title}</h2>
 
-      {/* Produktkarte: */}
+      {/* product card: */}
       <article className="product-card">
         <img src={singleProduct?.thumbnail} alt={singleProduct?.title} />
         <div className="product-title-count">
           <h2>{singleProduct?.title}</h2>
 
-          {/* Products-Counter: */}
+          {/* products-Counter: */}
           <div className="product-count">
-            {/* Minus-Icon - onclick -1 bis max. 1: */}
+            {/* Minus-Icon - onclick -1 with min: 1: */}
             <svg
               onClick={subItem}
               width="16"
@@ -72,7 +72,7 @@ const DetailsPage = () => {
               />
             </svg>
 
-            {/* Count-Ausgabe:  */}
+            {/* render count:  */}
             <p>{count}</p>
 
             {/* Plus-Icon - onclick +1: */}

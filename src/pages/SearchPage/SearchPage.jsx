@@ -5,12 +5,16 @@ import Sort from "../../components/Sort/Sort";
 import RenderProducts from "../../components/RenderProducts/RenderProducts";
 import Navbar from "../../components/Navbar/Navbar";
 import FilterPopup from "../../components/FilterPopup/FilterPopup";
-import { togglePopupContext } from "../../context/Context";
+import { togglePopupContext, userInputContext } from "../../context/Context";
 import { useContext, useState } from "react";
 
 const SearchPage = () => {
   // Import Context to Toggle Popup
   const { togglePopup } = useContext(togglePopupContext);
+
+  // Import User Input from Global Context
+  const { userInput } = useContext(userInputContext);
+  console.log(userInput);
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");

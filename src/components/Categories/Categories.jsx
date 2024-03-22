@@ -11,13 +11,16 @@ const Categories = () => {
 
   console.log(categoriesData);
   return (
-    <section>
+    <section className="categories">
       <FetchCategories />
       <h1>Categories</h1>
-      <div>
+      <div className="categories-flex">
         {categoriesData ? (
           categoriesData.map((item, index) => (
-            <p key={index}>{item.replace("-", " ")}</p>
+            <div key={index}>
+              <img src="/images/products/automotive.jpeg" alt="" />
+              <p>{item.replace("-", " ")}</p>
+            </div>
           ))
         ) : (
           <p> Loading </p>

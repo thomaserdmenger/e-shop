@@ -21,10 +21,18 @@
   margin-block-end: 3rem;
 }
 
+.popup__categories div,
+.popup__price div,
+.popup__brands div {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+}
+
 .popup__button {
   all: unset;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 15px;
 }
@@ -32,7 +40,7 @@
 .popup__button--selected {
   all: unset;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: var(--color-darkblue);

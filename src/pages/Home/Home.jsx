@@ -4,8 +4,11 @@ import FilterButton from "../../components/FilterButton/FilterButton";
 import Categories from "../../components/Categories/Categories";
 import Navbar from "../../components/Navbar/Navbar";
 import RenderRandom from "../../components/RenderRandom/RenderRandom";
+import FetchCategories from "../../components/FetchCategories/FetchCategories";
 
 const Home = () => {
+  
+
   return (
     <>
       <h1>Find your favourite Product</h1>
@@ -13,6 +16,7 @@ const Home = () => {
         <Search />
         <FilterButton />
       </div>
+      <FetchCategories />
       <Categories />
       <RenderRandom />
       <Navbar />

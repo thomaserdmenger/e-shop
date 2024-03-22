@@ -2,6 +2,7 @@ import FetchCategories from "../FetchCategories/FetchCategories";
 import "./Categories.css";
 import { useContext } from "react";
 import { fetchCategoriesContext } from "../../context/Context";
+import { categoriesImgData } from "../../assets/categoriesImgData/categoriesImgData";
 
 const Categories = () => {
   // * useContext für FetchCategories
@@ -9,7 +10,6 @@ const Categories = () => {
     fetchCategoriesContext
   );
 
-  console.log(categoriesData);
   return (
     <section className="categories">
       <FetchCategories />
@@ -18,7 +18,8 @@ const Categories = () => {
         {categoriesData ? (
           categoriesData.map((item, index) => (
             <div key={index}>
-              <img src="/images/products/automotive.jpeg" alt="" />
+              {/* passende Images aus eigenem Array in categoriesImgData */}
+              <img src={categoriesImgData[item]} alt="" />
               <p>{item.replace("-", " ")}</p>
             </div>
           ))

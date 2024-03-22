@@ -1,0 +1,12 @@
+.filter__button {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--color-darkblue);
+  border-radius: 15px;
+  display: flex;
+  padding: 1rem;
+}
+
+.filter__button svg {
+  fill: var(--color-white);
+}

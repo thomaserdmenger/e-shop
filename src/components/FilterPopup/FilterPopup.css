@@ -13,7 +13,8 @@
 }
 
 .popup__categories,
-.popup__price {
+.popup__price,
+.popup__brands {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -41,4 +42,16 @@
 .popup__button::first-letter,
 .popup__button--selected::first-letter {
   text-transform: uppercase;
+}
+
+.btn--popup {
+  margin-inline: auto;
+  width: 100%;
+}
+
+.popup__button-container {
+  display: flex;
+  width: 100%;
+  padding-inline: 1rem;
+  margin-block-start: 6rem;
 }

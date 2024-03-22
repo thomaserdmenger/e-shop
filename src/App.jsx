@@ -5,7 +5,6 @@ import Home from "./pages/Home/Home";
 import Onboarding from "./pages/Onboarding/Onboarding";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
-import PopupPageTemp from "./pages/PopupPageTemp/PopupPageTemp";
 import { useEffect, useState } from "react";
 import {
   fetchProductsContext,
@@ -67,7 +66,6 @@ function App() {
                         <Route path="/onboarding" element={<Onboarding />} />
                         <Route path="/search" element={<SearchPage />} />
                         <Route path="/details/:id" element={<DetailsPage />} />
-                        <Route path="/popup" element={<PopupPageTemp />} />
                       </Routes>
                     </BrowserRouter>
                   )}

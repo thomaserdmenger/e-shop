@@ -19,15 +19,8 @@ const FilterPopup = () => {
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");
 
-  // State for unique brands
-  const [uniqueBrands, setUniqueBrands] = useState([]);
-
-  useEffect(() => {
-    // Extract unique brands from productsData
-    const brandsSet = new Set(productsData.products.map((item) => item.brand));
-    // console.log(brandsSet);
-    setUniqueBrands(Array.from(brandsSet));
-  }, [productsData]);
+  // State for Brand Buttons
+  const [brandsVal, setBrandsVal] = useState("");
 
   return (
     <main className="popup">
@@ -93,11 +86,114 @@ const FilterPopup = () => {
       <section className="popup__brands">
         <h3>Brands</h3>
         <div>
-          {uniqueBrands.map((brand, index) => (
-            <button className="popup__button" key={index}>
-              {brand}
-            </button>
-          ))}
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Apple"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Apple
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Samsung"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Samsung
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "L'Oreal Paris"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            L'Oreal Paris
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Huawei"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Huawei
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Microsoft"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Microsoft
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Golden"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Golden
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "IELGY"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            IELGY
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Stainless"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Stainless
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "LouisWill"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            LouisWill
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Brave Bull"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Brave Bull
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Yiosi"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Yiosi
+          </button>
+          <button
+            onClick={(e) => setBrandsVal(e.target.textContent)}
+            className={
+              brandsVal === "Jiepollyl"
+                ? "popup__button--selected"
+                : "popup__button"
+            }>
+            Jiepollyl
+          </button>
         </div>
       </section>
     </main>

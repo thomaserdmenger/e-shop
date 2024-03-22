@@ -13,7 +13,8 @@
 }
 
 .popup__categories,
-.popup__price {
+.popup__price,
+.popup__brands {
   display: flex;
   flex-direction: column;
   gap: 2rem;

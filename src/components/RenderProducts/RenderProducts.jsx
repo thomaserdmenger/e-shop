@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const RenderProducts = () => {
   // context for fetch all products
   const { productsData, setProductsData } = useContext(fetchProductsContext);
-  console.log(productsData);
   // -- stattdessen einen globalen State, in den immer alle gefilterten und gesuchten Ergebnisse reingespeichert werden, und den dann hier in einen eigenen state speichern (damit er sich nicht selbst überschreibt) und dessen Daten hier ausgeben lassen? (analog zu PokeDex?)
 
   // state for first 20 loaded products
@@ -62,7 +61,7 @@ const RenderProducts = () => {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g clip-path="url(#clip0_102_2004)">
+                  <g clipPath="url(#clip0_102_2004)">
                     <path
                       d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z"
                       fill="#364FD4"

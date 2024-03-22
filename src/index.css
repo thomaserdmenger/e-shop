@@ -22,7 +22,6 @@
 
 html {
   font-family: poppins-regular;
-  font-size: 12px;
 }
 
 * {
@@ -61,23 +60,23 @@ img {
 
 h1 {
   font-family: poppins-bold;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-family: poppins-semibold;
 }
 
 h3 {
   font-family: poppins-semibold;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 h4 {
   font-family: poppins-semibold;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .btn {
@@ -121,7 +120,7 @@ a {
 }
 
 .render article img {
-  height: 13rem;
+  height: 10rem;
   width: 100%;
   object-fit: cover;
 }
@@ -133,6 +132,10 @@ a {
   padding-block: 0.5rem;
 }
 
+.render-rate {
+  align-items: center;
+}
+
 .render-rate p {
   color: var(--color-gray1);
 }
@@ -141,7 +144,14 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-.render-title h3 {
+
+.render-title h4 {
+  /* max-width, damit die längeren Produktnamen nicht umbrechen, sondern versteckt werden; bis 11ch ändert sich nichts am restlichen Design; für responsive in media queries entsprechend anpassen */
+  max-width: 11ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   margin-bottom: 0.5rem;
 }
 

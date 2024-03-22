@@ -2,6 +2,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: white;
 }
 .nav-bar div {
   display: flex;
@@ -24,5 +25,4 @@
 .nav-bar .active svg {
   border-radius: 15px 15px;
   fill: var(--color-darkblue);
-  background-color: lightgray;
 }

@@ -1,0 +1,8 @@
+.back-arrow {
+  width: 25px;
+  height: 25px;
+  fill: var(--color-darkblue);
+  position: absolute;
+  left: 20px;
+  top: 40px;
+}

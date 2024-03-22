@@ -18,7 +18,7 @@ const SearchPage = () => {
       ) : (
         <main>
           <h1>SearchPage</h1>
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div className="search-filter">
             <Search />
             <FilterButton />
           </div>

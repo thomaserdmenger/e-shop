@@ -1,18 +1,28 @@
 .nav-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.nav-bar div {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
-  margin-inline: 2rem;
+  gap: 3rem;
+  padding: 1.5rem 0;
 
-  bottom: 0;
-  gap: 2rem;
+  box-shadow: 0 4px 15px #000000;
+  /* filter: drop-shadow(0 4px 40px); */
+
+  border-radius: 25px 25px 0 0;
 }
 
-.herz {
-  color: gray;
-  width: 20px;
-}
-svg {
+.nav-bar svg {
   fill: black;
+  height: 24px;
+}
+
+.nav-bar .active svg {
+  border-radius: 15px 15px;
+  fill: var(--color-darkblue);
+  background-color: lightgray;
 }

@@ -1,17 +1,33 @@
 import "./FilterPopup.css";
 import BackButton from "../BackButton/BackButton";
-import { fetchCategoriesContext } from "../../context/Context";
-import { useContext, useState } from "react";
+import {
+  fetchCategoriesContext,
+  fetchProductsContext
+} from "../../context/Context";
+import { useContext, useState, useEffect } from "react";
 
 const FilterPopup = () => {
   // Import Context with Categories Data
   const { categoriesData } = useContext(fetchCategoriesContext);
+
+  // Import Context with Products Data
+  const { productsData } = useContext(fetchProductsContext);
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
 
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");
+
+  // State for unique brands
+  const [uniqueBrands, setUniqueBrands] = useState([]);
+
+  useEffect(() => {
+    // Extract unique brands from productsData
+    const brandsSet = new Set(productsData.products.map((item) => item.brand));
+    // console.log(brandsSet);
+    setUniqueBrands(Array.from(brandsSet));
+  }, [productsData]);
 
   return (
     <main className="popup">
@@ -37,7 +53,7 @@ const FilterPopup = () => {
           })}
         </div>
       </section>
-      <section className="price">
+      <section className="popup__price">
         <h3>Price</h3>
         <div>
           <button
@@ -72,6 +88,16 @@ const FilterPopup = () => {
             onClick={(e) => setPriceVal(e.target.value)}>
             über 100 €
           </button>
+        </div>
+      </section>
+      <section className="popup__brands">
+        <h3>Brands</h3>
+        <div>
+          {uniqueBrands.map((brand, index) => (
+            <button className="popup__button" key={index}>
+              {brand}
+            </button>
+          ))}
         </div>
       </section>
     </main>

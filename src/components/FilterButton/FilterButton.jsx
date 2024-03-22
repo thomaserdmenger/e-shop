@@ -1,6 +1,6 @@
 import "./FilterButton.css";
 import { togglePopupContext } from "../../context/Context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 const FilterButton = () => {
   const { togglePopup, setTogglePopup } = useContext(togglePopupContext);

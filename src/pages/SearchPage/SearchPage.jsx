@@ -5,19 +5,28 @@ import Sort from "../../components/Sort/Sort";
 import RenderProducts from "../../components/RenderProducts/RenderProducts";
 import Navbar from "../../components/Navbar/Navbar";
 import FilterPopup from "../../components/FilterPopup/FilterPopup";
+import { togglePopupContext } from "../../context/Context";
+import { useContext } from "react";
 
 const SearchPage = () => {
+  const { togglePopup } = useContext(togglePopupContext);
+
   return (
     <>
-      <h1>SearchPage</h1>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <Search />
-        <FilterButton />
-      </div>
-      <Sort />
-      <RenderProducts />
-      <Navbar />
-      {/* <FilterPopup /> */}
+      {togglePopup ? (
+        <FilterPopup />
+      ) : (
+        <main>
+          <h1>SearchPage</h1>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Search />
+            <FilterButton />
+          </div>
+          <Sort />
+          <RenderProducts />
+          <Navbar />
+        </main>
+      )}
     </>
   );
 };

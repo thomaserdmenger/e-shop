@@ -2,16 +2,17 @@ import "./FilterPopup.css";
 import BackButton from "../BackButton/BackButton";
 import {
   fetchCategoriesContext,
-  fetchProductsContext
+  fetchProductsContext,
+  togglePopupContext
 } from "../../context/Context";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 
 const FilterPopup = () => {
   // Import Context with Categories Data
   const { categoriesData } = useContext(fetchCategoriesContext);
 
-  // Import Context with Products Data
-  const { productsData } = useContext(fetchProductsContext);
+  // Import Context to Toggle Popup
+  const { togglePopup, setTogglePopup } = useContext(togglePopupContext);
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
@@ -197,7 +198,11 @@ const FilterPopup = () => {
         </div>
       </section>
       <div className="popup__button-container">
-        <button className="btn btn--popup">Apply Filter</button>
+        <button
+          onClick={() => setTogglePopup(!togglePopup)}
+          className="btn btn--popup">
+          Apply Filter
+        </button>
       </div>
     </main>
   );

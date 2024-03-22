@@ -43,3 +43,15 @@
 .popup__button--selected::first-letter {
   text-transform: uppercase;
 }
+
+.btn--popup {
+  margin-inline: auto;
+  width: 100%;
+}
+
+.popup__button-container {
+  display: flex;
+  width: 100%;
+  padding-inline: 1rem;
+  margin-block-start: 6rem;
+}

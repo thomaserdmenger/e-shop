@@ -196,6 +196,9 @@ const FilterPopup = () => {
           </button>
         </div>
       </section>
+      <div className="popup__button-container">
+        <button className="btn btn--popup">Apply Filter</button>
+      </div>
     </main>
   );
 };

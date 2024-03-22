@@ -5,8 +5,13 @@ import Sort from "../../components/Sort/Sort";
 import RenderProducts from "../../components/RenderProducts/RenderProducts";
 import Navbar from "../../components/Navbar/Navbar";
 import FilterPopup from "../../components/FilterPopup/FilterPopup";
-import { togglePopupContext, userInputContext } from "../../context/Context";
-import { useContext, useState } from "react";
+import {
+  togglePopupContext,
+  userInputContext,
+  filteredDataContext,
+  fetchProductsContext,
+} from "../../context/Context";
+import { useContext, useEffect, useState } from "react";
 
 const SearchPage = () => {
   // Import Context to Toggle Popup
@@ -14,7 +19,14 @@ const SearchPage = () => {
 
   // Import User Input from Global Context
   const { userInput } = useContext(userInputContext);
-  console.log(userInput);
+  // console.log(userInput);
+
+  // Import filtered Data from Global Context
+  const { filteredData, setFilteredData } = useContext(filteredDataContext);
+
+  // Import Global Product Fetch
+  const { productsData } = useContext(fetchProductsContext);
+  // console.log(productsData);
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
@@ -26,7 +38,18 @@ const SearchPage = () => {
 
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
-  console.log(brandsVal);
+  // console.log(brandsVal);
+
+  // filter Products-Data
+  useEffect(() => {
+    console.log(catVal);
+    const filter = productsData?.products?.filter(
+      (item) => item.category === catVal
+    );
+    setFilteredData(filter);
+    // console.log(filter);
+  }, [catVal]);
+  console.log(filteredData);
 
   return (
     <>
@@ -47,7 +70,7 @@ const SearchPage = () => {
             <FilterButton />
           </div>
           <Sort />
-          <RenderProducts />
+          <RenderProducts filteredData={filteredData} />
           <Navbar />
         </main>
       )}

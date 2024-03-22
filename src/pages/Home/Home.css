@@ -3,6 +3,12 @@ h1 {
 }
 
 .search-filter {
-  display: flex;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
   gap: 1rem;
+  padding-inline: 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 100%;
 }

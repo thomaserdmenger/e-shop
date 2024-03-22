@@ -11,7 +11,8 @@ import {
   fetchCategoriesContext,
   userInputContext,
   darkModeContext,
-  togglePopupContext
+  togglePopupContext,
+  filteredDataContext,
 } from "./context/Context";
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
   const [togglePopup, setTogglePopup] = useState(false);
   // console.log(togglePopup);
 
+  // Global State for filtered Data
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(!loading);
@@ -49,26 +53,36 @@ function App() {
     <>
       <div className="wrapper">
         <fetchProductsContext.Provider
-          value={{ productsData, setProductsData }}>
+          value={{ productsData, setProductsData }}
+        >
           <fetchCategoriesContext.Provider
-            value={{ categoriesData, setCategoriesData }}>
+            value={{ categoriesData, setCategoriesData }}
+          >
             <userInputContext.Provider value={{ userInput, setUserInput }}>
               <darkModeContext.Provider value={{ darkMode, setDarkMode }}>
                 <togglePopupContext.Provider
-                  value={{ togglePopup, setTogglePopup }}>
-                  {loading ? (
-                    <Loading />
-                  ) : (
-                    <BrowserRouter>
-                      <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/loading" element={<Loading />} />
-                        <Route path="/onboarding" element={<Onboarding />} />
-                        <Route path="/search" element={<SearchPage />} />
-                        <Route path="/details/:id" element={<DetailsPage />} />
-                      </Routes>
-                    </BrowserRouter>
-                  )}
+                  value={{ togglePopup, setTogglePopup }}
+                >
+                  <filteredDataContext.Provider
+                    value={{ filteredData, setFilteredData }}
+                  >
+                    {loading ? (
+                      <Loading />
+                    ) : (
+                      <BrowserRouter>
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route path="/loading" element={<Loading />} />
+                          <Route path="/onboarding" element={<Onboarding />} />
+                          <Route path="/search" element={<SearchPage />} />
+                          <Route
+                            path="/details/:id"
+                            element={<DetailsPage />}
+                          />
+                        </Routes>
+                      </BrowserRouter>
+                    )}
+                  </filteredDataContext.Provider>
                 </togglePopupContext.Provider>
               </darkModeContext.Provider>
             </userInputContext.Provider>

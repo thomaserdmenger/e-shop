@@ -2,7 +2,7 @@ import "./FilterPopup.css";
 import BackButton from "../BackButton/BackButton";
 import {
   fetchCategoriesContext,
-  togglePopupContext
+  togglePopupContext,
 } from "../../context/Context";
 import { useContext, useState } from "react";
 
@@ -12,7 +12,7 @@ const FilterPopup = ({
   priceVal,
   setPriceVal,
   brandsVal,
-  setBrandsVal
+  setBrandsVal,
 }) => {
   // Import Context with Categories Data
   const { categoriesData } = useContext(fetchCategoriesContext);
@@ -37,7 +37,8 @@ const FilterPopup = ({
                 className={
                   catVal === cat ? "popup__button--selected" : "popup__button"
                 }
-                value={cat}>
+                value={cat}
+              >
                 {cat.replace("-", " ")}
               </button>
             );
@@ -49,34 +50,38 @@ const FilterPopup = ({
         <div>
           <button
             onClick={(e) => setPriceVal(e.target.value)}
-            value="<20"
+            value={20}
             className={
-              priceVal === "<20" ? "popup__button--selected" : "popup__button"
-            }>
+              priceVal == "20" ? "popup__button--selected" : "popup__button"
+            }
+          >
             0 - 20 €
           </button>
           <button
-            value="<50"
+            value={50}
             onClick={(e) => setPriceVal(e.target.value)}
             className={
-              priceVal === "<50" ? "popup__button--selected" : "popup__button"
-            }>
+              priceVal == "50" ? "popup__button--selected" : "popup__button"
+            }
+          >
             20 - 50 €
           </button>
           <button
-            value="<100"
+            value={100}
             onClick={(e) => setPriceVal(e.target.value)}
             className={
-              priceVal === "<100" ? "popup__button--selected" : "popup__button"
-            }>
+              priceVal == "100" ? "popup__button--selected" : "popup__button"
+            }
+          >
             50 - 100 €
           </button>
           <button
-            value=">100"
+            value={100.01}
             className={
-              priceVal === ">100" ? "popup__button--selected" : "popup__button"
+              priceVal == "100.01" ? "popup__button--selected" : "popup__button"
             }
-            onClick={(e) => setPriceVal(e.target.value)}>
+            onClick={(e) => setPriceVal(e.target.value)}
+          >
             über 100 €
           </button>
         </div>
@@ -90,7 +95,8 @@ const FilterPopup = ({
               brandsVal === "Apple"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Apple
           </button>
           <button
@@ -99,7 +105,8 @@ const FilterPopup = ({
               brandsVal === "Samsung"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Samsung
           </button>
           <button
@@ -108,7 +115,8 @@ const FilterPopup = ({
               brandsVal === "L'Oreal Paris"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             L'Oreal Paris
           </button>
           <button
@@ -117,17 +125,19 @@ const FilterPopup = ({
               brandsVal === "Huawei"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Huawei
           </button>
           <button
             onClick={(e) => setBrandsVal(e.target.textContent)}
             className={
-              brandsVal === "Microsoft"
+              brandsVal === "Microsoft Surface"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
-            Microsoft
+            }
+          >
+            Microsoft Surface
           </button>
           <button
             onClick={(e) => setBrandsVal(e.target.textContent)}
@@ -135,7 +145,8 @@ const FilterPopup = ({
               brandsVal === "Golden"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Golden
           </button>
           <button
@@ -144,7 +155,8 @@ const FilterPopup = ({
               brandsVal === "IELGY"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             IELGY
           </button>
           <button
@@ -153,7 +165,8 @@ const FilterPopup = ({
               brandsVal === "Stainless"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Stainless
           </button>
           <button
@@ -162,7 +175,8 @@ const FilterPopup = ({
               brandsVal === "LouisWill"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             LouisWill
           </button>
           <button
@@ -171,7 +185,8 @@ const FilterPopup = ({
               brandsVal === "Brave Bull"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Brave Bull
           </button>
           <button
@@ -180,7 +195,8 @@ const FilterPopup = ({
               brandsVal === "Yiosi"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Yiosi
           </button>
           <button
@@ -189,7 +205,8 @@ const FilterPopup = ({
               brandsVal === "Jiepollyl"
                 ? "popup__button--selected"
                 : "popup__button"
-            }>
+            }
+          >
             Jiepollyl
           </button>
         </div>
@@ -197,7 +214,8 @@ const FilterPopup = ({
       <div className="popup__button-container">
         <button
           onClick={() => setTogglePopup(!togglePopup)}
-          className="btn btn--popup">
+          className="btn btn--popup"
+        >
           Apply Filter
         </button>
       </div>

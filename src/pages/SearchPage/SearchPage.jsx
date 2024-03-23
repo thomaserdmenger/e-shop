@@ -23,7 +23,7 @@ const SearchPage = () => {
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
-  console.log(filteredData);
+  console.log("filteredData: " + filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -41,9 +41,12 @@ const SearchPage = () => {
   const [brandsVal, setBrandsVal] = useState("");
   // console.log(brandsVal);
 
+  // const [temp, setTemp] = useState(true);
+  // console.log("temp: " + temp);
+
   // filter all products
   useEffect(() => {
-    const filter = productsData?.products?.filter((item) => {
+    let filter = productsData?.products?.filter((item) => {
       let finalPriceVal = "";
 
       if (priceVal === "20" && catVal === "" && brandsVal === "") {
@@ -178,7 +181,14 @@ const SearchPage = () => {
       }
     });
 
-    console.log(filter);
+    // if (filter === "") {
+    //   setTemp(false);
+    // } else {
+    //   setTemp(true);
+    // }
+    // console.log("filter: " + filter);
+
+    // console.log(filter);
 
     setFilteredData(filter);
 
@@ -203,9 +213,8 @@ const SearchPage = () => {
     // ! 16. Category + Brand + Price 50.01-100
     // ! 16. Category + Brand + Price 100.01
 
-    // # Was ist, wenn Filterergebnis === 0, dann Fehlermeldung einbauen!
-  }, [catVal, priceVal, brandsVal]);
-  // console.log(filteredData);
+    // # Was ist, wenn Filterergebnis === 0, dann Fehlermeldung einbauen! Bsp: Smartphone (check), Apple (check), 0-20 (keine Angebote)
+  }, [catVal, priceVal, brandsVal, productsData, setFilteredData]);
 
   return (
     <>

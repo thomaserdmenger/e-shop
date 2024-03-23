@@ -216,7 +216,13 @@ const FilterPopup = ({
       </section>
       <div className="popup__button-container">
         <button
-          onClick={() => setTogglePopup(!togglePopup)}
+          onClick={() => {
+            setTogglePopup(!togglePopup);
+
+            // if (priceVal === "" && catVal === "" && brandsVal === "") {
+            //   setTemp(true);
+            // }
+          }}
           className="btn btn--popup">
           Apply Filter
         </button>

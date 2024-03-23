@@ -147,11 +147,11 @@ const RenderProducts = ({ filteredData }) => {
       </div>
 
       {/* Filtered Data with False Value because there is no result after Filtering */}
-      {filteredData.includes("false") && (
+      {/* {temp && (
         <section>
           <p>No result</p>
         </section>
-      )}
+      )} */}
     </>
   );
 };

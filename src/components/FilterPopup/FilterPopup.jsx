@@ -188,29 +188,29 @@ const FilterPopup = ({
           <button
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
-              brandsVal === "Brave Bull"
+              brandsVal === "BRAVE BULL"
                 ? "popup__button--selected"
                 : "popup__button"
             }>
-            Brave Bull
+            BRAVE BULL
           </button>
           <button
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
-              brandsVal === "Yiosi"
+              brandsVal === "Xiangle"
                 ? "popup__button--selected"
                 : "popup__button"
             }>
-            Yiosi
+            Xiangle
           </button>
           <button
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
-              brandsVal === "Jiepollyl"
+              brandsVal === "JIEPOLLY"
                 ? "popup__button--selected"
                 : "popup__button"
             }>
-            Jiepollyl
+            JIEPOLLY
           </button>
         </div>
       </section>

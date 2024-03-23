@@ -31,8 +31,7 @@ const RenderProducts = ({ filteredData }) => {
                     height="16"
                     viewBox="0 0 16 16"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_1_1364)">
                       <path
                         d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"
@@ -60,8 +59,7 @@ const RenderProducts = ({ filteredData }) => {
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_102_2004)">
                       <path
                         d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z"
@@ -94,8 +92,7 @@ const RenderProducts = ({ filteredData }) => {
                     height="16"
                     viewBox="0 0 16 16"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_1_1364)">
                       <path
                         d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"
@@ -123,8 +120,7 @@ const RenderProducts = ({ filteredData }) => {
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
+                    xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_102_2004)">
                       <path
                         d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z"
@@ -149,6 +145,13 @@ const RenderProducts = ({ filteredData }) => {
           Load More
         </Link>
       </div>
+
+      {/* Filtered Data with False Value because there is no result after Filtering */}
+      {filteredData.includes("false") && (
+        <section>
+          <p>No result</p>
+        </section>
+      )}
     </>
   );
 };

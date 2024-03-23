@@ -23,6 +23,7 @@ const SearchPage = () => {
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
+  console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -65,6 +66,115 @@ const SearchPage = () => {
         return item.category;
       } else if (brandsVal === item.brand && priceVal === "" && catVal === "") {
         return item.category;
+      } else if (
+        brandsVal === item.brand &&
+        catVal === item.category &&
+        priceVal === ""
+      ) {
+        return item.brand && item.category;
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return item.category && item.price > 0 && item.price <= finalPriceVal;
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return (
+          item.category && item.price > 20.01 && item.price <= finalPriceVal
+        );
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return (
+          item.category && item.price > 50.01 && item.price <= finalPriceVal
+        );
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.category && item.price > 100.01;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return item.brand && item.price > 0 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return item.brand && item.price > 20.01 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return item.brand && item.price > 50.01 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.brand && item.price > 100.01;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 0 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 20.01 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 100.01 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.brand && item.category && item.price > 100.01;
       }
     });
 
@@ -72,55 +182,30 @@ const SearchPage = () => {
 
     setFilteredData(filter);
 
-    // # item.price > 0 && item.price <= priceVal
-    // # item.price > 20.01 && item.price <= priceVal
-
-    // item.category === catVal ||
-    // (priceVal === 20
-
-    // (priceVal === 20 ? item.price > 0 && item.price <= priceVal : "") ||
-    // (priceVal === 50 && item.price > 20.01 && item.price <= priceVal) ||
-    // (item.price > 50.01 && item.price <= priceVal) ||
-    // item.price > 100.01 ||
-    // item.brand === brandsVal
-
-    // item.category === catVal && item.price > 0 && item.price <= priceVal //--> läuft ohne Zeilenumbruch
-    // item.category === catVal //--> läuft
-
     // * einzelne Filter:
-    // item.category === catVal||
-    // (item.price > 0 && item.price <= priceVal) ||
-    // (item.price > 20.01 && item.price <= priceVal) ||
-    // (item.price > 50.01 && item.price <= priceVal) ||
-    // item.price > 100.01 ||
-    // item.brand === brandsVal
+    // ! 1. Category
+    // ! 2. Brand
+    // ! 3. Price 0-20
+    // ! 4. Price 20.01-50
+    // ! 5. Price 50.01-100
+    // ! 6. Price 100.01
+    // ! 7. Category + Brand
+    // ! 8. Category + Price 0-20
+    // ! 9. Category + Price 20.01-50
+    // ! 10. Category + Price 50.01-100
+    // ! 11. Category + Price 100.01
+    // ! 12. Brand + Price 0-20
+    // ! 13. Brand + Price 20.01-50
+    // ! 14. Brand + Price 50.01-100
+    // ! 15. Brand + Price 100.01
+    // ! 16. Category + Brand + Price 0-20
+    // ! 16. Category + Brand + Price 20.01-50
+    // ! 16. Category + Brand + Price 50.01-100
+    // ! 16. Category + Brand + Price 100.01
 
-    // category
-    // brand
-    // price20
-    // price50
-    // price100
-    // price100.01
-
-    // category + price20
-    // category + price50
-    // category + price100
-    // category + price100.01
-
-    // brand + price20
-    // brand + price50
-    // brand + price100
-    // brand + price100.01
-
-    // category + brand
-
-    // category + price20 + brand
-    // category + price50 + brand
-    // category + price100 + brand
-    // category + price100.01 + brand
-    // console.log(filter);
+    // # Was ist, wenn Filterergebnis === 0, dann Fehlermeldung einbauen!
   }, [catVal, priceVal, brandsVal]);
-  console.log(filteredData);
+  // console.log(filteredData);
 
   return (
     <>

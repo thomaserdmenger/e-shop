@@ -149,8 +149,11 @@ const RenderProducts = ({ filteredData, noResult }) => {
 
       {/* Filtered Data with False Value because there is no result after Filtering */}
       {filteredData.includes("noResult") && (
-        <section>
-          <p>No result</p>
+        <section className="noresults">
+          <p>
+            No results for your search query. Please change the filter to get
+            results.
+          </p>
         </section>
       )}
     </>

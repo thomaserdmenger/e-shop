@@ -12,8 +12,7 @@ const FilterPopup = ({
   priceVal,
   setPriceVal,
   brandsVal,
-  setBrandsVal,
-  setNoResult
+  setBrandsVal
 }) => {
   // Import Context with Categories Data
   const { categoriesData } = useContext(fetchCategoriesContext);

@@ -19,7 +19,7 @@ const SearchPage = () => {
 
   // Import User Input from Global Context
   const { userInput } = useContext(userInputContext);
-  // console.log(userInput);
+  console.log(userInput);
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
@@ -40,10 +40,6 @@ const SearchPage = () => {
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
   // console.log(brandsVal);
-
-  // # State for No Results after Filtering in Popup
-  const [noResult, setNoResult] = useState(false);
-  // console.log(noResult);
 
   // filter all products
   useEffect(() => {
@@ -201,7 +197,6 @@ const SearchPage = () => {
           setPriceVal={setPriceVal}
           brandsVal={brandsVal}
           setBrandsVal={setBrandsVal}
-          setNoResult={setNoResult}
         />
       ) : (
         <main>
@@ -211,11 +206,7 @@ const SearchPage = () => {
             <FilterButton />
           </div>
           <Sort />
-          <RenderProducts
-            filteredData={filteredData}
-            noResult={noResult}
-            setNoResult={setNoResult}
-          />
+          <RenderProducts filteredData={filteredData} />
           <Navbar />
         </main>
       )}

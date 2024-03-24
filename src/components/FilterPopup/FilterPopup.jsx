@@ -4,7 +4,7 @@ import {
   fetchCategoriesContext,
   togglePopupContext
 } from "../../context/Context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const FilterPopup = ({
   catVal,
@@ -12,7 +12,8 @@ const FilterPopup = ({
   priceVal,
   setPriceVal,
   brandsVal,
-  setBrandsVal
+  setBrandsVal,
+  setNoResult
 }) => {
   // Import Context with Categories Data
   const { categoriesData } = useContext(fetchCategoriesContext);
@@ -218,10 +219,6 @@ const FilterPopup = ({
         <button
           onClick={() => {
             setTogglePopup(!togglePopup);
-
-            // if (priceVal === "" && catVal === "" && brandsVal === "") {
-            //   setTemp(true);
-            // }
           }}
           className="btn btn--popup">
           Apply Filter

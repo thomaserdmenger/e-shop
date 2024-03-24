@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { fetchProductsContext } from "../../context/Context";
 import { Link } from "react-router-dom";
 
-const RenderProducts = ({ filteredData }) => {
+const RenderProducts = ({ filteredData, noResult }) => {
   // console.log(filteredData);
 
   // context for fetching all products
@@ -18,6 +18,7 @@ const RenderProducts = ({ filteredData }) => {
       <section className="render">
         {/* render filtered products */}
         {filteredData.length > 0 &&
+          !filteredData.includes("noResult") &&
           filteredData?.slice(0, loadItems).map((item, index) => (
             <Link to={`/details/${item.id}`} key={index}>
               <article>
@@ -147,11 +148,11 @@ const RenderProducts = ({ filteredData }) => {
       </div>
 
       {/* Filtered Data with False Value because there is no result after Filtering */}
-      {/* {temp && (
+      {filteredData.includes("noResult") && (
         <section>
           <p>No result</p>
         </section>
-      )} */}
+      )}
     </>
   );
 };

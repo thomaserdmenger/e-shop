@@ -23,7 +23,7 @@ const SearchPage = () => {
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
-  console.log("filteredData: " + filteredData);
+  // console.log("filteredData: " + filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -41,8 +41,9 @@ const SearchPage = () => {
   const [brandsVal, setBrandsVal] = useState("");
   // console.log(brandsVal);
 
-  // const [temp, setTemp] = useState(true);
-  // console.log("temp: " + temp);
+  // # State for No Results after Filtering in Popup
+  const [noResult, setNoResult] = useState(false);
+  // console.log(noResult);
 
   // filter all products
   useEffect(() => {
@@ -181,40 +182,14 @@ const SearchPage = () => {
       }
     });
 
-    // if (filter === "") {
-    //   setTemp(false);
-    // } else {
-    //   setTemp(true);
-    // }
-    // console.log("filter: " + filter);
+    if (filter.length === 0 && (catVal || priceVal || brandsVal)) {
+      filter = ["noResult"];
+    }
 
-    // console.log(filter);
+    // (catVall || priceVal || brandsVal) => Prüft, ob mindestens eine der Variablen einen Wert hat, der nicht gleich einem leeren String ist. Einen Wert erhalten sie, wenn sie im Popup ausgewählt werden und die API auch einen passenden Wert zurückgibt.
 
     setFilteredData(filter);
-
-    // * einzelne Filter:
-    // ! 1. Category
-    // ! 2. Brand
-    // ! 3. Price 0-20
-    // ! 4. Price 20.01-50
-    // ! 5. Price 50.01-100
-    // ! 6. Price 100.01
-    // ! 7. Category + Brand
-    // ! 8. Category + Price 0-20
-    // ! 9. Category + Price 20.01-50
-    // ! 10. Category + Price 50.01-100
-    // ! 11. Category + Price 100.01
-    // ! 12. Brand + Price 0-20
-    // ! 13. Brand + Price 20.01-50
-    // ! 14. Brand + Price 50.01-100
-    // ! 15. Brand + Price 100.01
-    // ! 16. Category + Brand + Price 0-20
-    // ! 16. Category + Brand + Price 20.01-50
-    // ! 16. Category + Brand + Price 50.01-100
-    // ! 16. Category + Brand + Price 100.01
-
-    // # Was ist, wenn Filterergebnis === 0, dann Fehlermeldung einbauen! Bsp: Smartphone (check), Apple (check), 0-20 (keine Angebote)
-  }, [catVal, priceVal, brandsVal, productsData, setFilteredData]);
+  }, [catVal, priceVal, brandsVal]);
 
   return (
     <>
@@ -226,6 +201,7 @@ const SearchPage = () => {
           setPriceVal={setPriceVal}
           brandsVal={brandsVal}
           setBrandsVal={setBrandsVal}
+          setNoResult={setNoResult}
         />
       ) : (
         <main>
@@ -235,7 +211,11 @@ const SearchPage = () => {
             <FilterButton />
           </div>
           <Sort />
-          <RenderProducts filteredData={filteredData} />
+          <RenderProducts
+            filteredData={filteredData}
+            noResult={noResult}
+            setNoResult={setNoResult}
+          />
           <Navbar />
         </main>
       )}

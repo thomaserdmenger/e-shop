@@ -7,7 +7,6 @@
 .searchbar__input {
   all: unset;
   background-color: var(--color-gray4);
-  cursor: pointer;
   border-radius: 5px;
   padding: 1.2rem;
   padding-inline-start: 4rem;
@@ -17,17 +16,21 @@
 
 .searchbar__icon-container1 {
   position: absolute;
-  top: 1rem;
+  top: 1.2rem;
   left: 1rem;
 }
 
 .searchbar__icon-container2 {
   position: absolute;
-  top: 1rem;
+  top: 1.2rem;
   left: 85%;
 }
 
 .searchbar__icon {
   width: 25px;
   fill: var(--color-gray2);
+}
+
+.searchbar svg {
+  cursor: pointer;
 }

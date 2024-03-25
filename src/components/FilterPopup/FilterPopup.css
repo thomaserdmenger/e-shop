@@ -1,16 +1,14 @@
 .popup {
   min-height: 100vh;
-  min-width: 100vw;
   padding-inline: 1rem;
-  padding-block-start: 2.5rem;
-  padding-block-end: 3rem;
+  padding-block: 2rem;
 }
 
 .popup__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-block-end: 4.5rem;
+  margin-block-end: 3rem;
   position: relative;
   display: flex;
   justify-content: center;

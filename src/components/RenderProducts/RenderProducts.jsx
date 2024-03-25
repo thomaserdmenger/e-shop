@@ -1,14 +1,17 @@
 import "./RenderProducts.css";
-
-import { useContext, useEffect, useState } from "react";
-import { fetchProductsContext } from "../../context/Context";
+import { useContext, useState } from "react";
+import {
+  fetchProductsContext,
+  filteredDataContext,
+} from "../../context/Context";
 import { Link } from "react-router-dom";
 
-const RenderProducts = ({ filteredData, noResult }) => {
-  // console.log(filteredData);
-
+const RenderProducts = ({ noResult }) => {
   // context for fetching all products
   const { productsData, setProductsData } = useContext(fetchProductsContext);
+
+  // context for filtered data
+  const { filteredData } = useContext(filteredDataContext);
 
   // state for first 20 loaded products
   const [loadItems, setLoadItems] = useState(20);

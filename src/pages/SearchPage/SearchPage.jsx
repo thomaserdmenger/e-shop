@@ -24,7 +24,7 @@ const SearchPage = () => {
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
   // console.log("filteredData: " + filteredData);
-  console.log(filteredData);
+  // console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -190,20 +190,31 @@ const SearchPage = () => {
 
   // ! Filter Product Data by User Input
   useEffect(() => {
-    if (filteredData.length === 0 && userInput !== "") {
+    // search all products data
+    if (filteredData.length === 0 && userInput.length >= 1) {
       setFilteredData(
         productsData?.products?.filter((item) => {
           return item.title.toLowerCase().includes(userInput.toLowerCase());
         })
       );
+      // search filtered Data
     } else if (filteredData.length > 0 && !filteredData.includes("noResult")) {
       setFilteredData(
         filteredData?.filter((item) => {
           return item.title.toLowerCase().includes(userInput.toLowerCase());
         })
       );
+      // error if user input not found
+    } else if (
+      !filteredData.includes(userInput.toLowerCase()) &&
+      userInput.length !== 0
+    ) {
+      setFilteredData(["noResult"]);
     }
   }, [userInput, productsData]);
+
+  console.log("filteredData:", filteredData);
+  console.log("user Input:", userInput);
 
   return (
     <>
@@ -223,8 +234,8 @@ const SearchPage = () => {
             <Search />
             <FilterButton />
           </div>
-          <Sort filteredData={filteredData} setFilteredData={setFilteredData} />
-          <RenderProducts filteredData={filteredData} />
+          <Sort />
+          <RenderProducts />
           <Navbar />
         </main>
       )}

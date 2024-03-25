@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 const Search = () => {
   const { userInput, setUserInput } = useContext(userInputContext);
-  const { filtered, setFilteredData } = useContext(filteredDataContext);
+  const { setFilteredData } = useContext(filteredDataContext);
 
   // Func to reset filteredData and userInput
   const reset = () => {

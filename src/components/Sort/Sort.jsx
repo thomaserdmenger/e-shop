@@ -1,11 +1,17 @@
 import "./Sort.css";
 import { useContext, useState } from "react";
-import { fetchProductsContext } from "../../context/Context";
+import {
+  fetchProductsContext,
+  filteredDataContext,
+} from "../../context/Context";
 
 // props for filteredData and setFilteredData from SearchPage.jsx
-const Sort = ({ filteredData, setFilteredData }) => {
+const Sort = () => {
   // import context for fetched product data
   const { productsData } = useContext(fetchProductsContext);
+
+  // import filteredData
+  const { filteredData, setFilteredData } = useContext(filteredDataContext);
 
   // state for chosen sort mechanism
   const [sortName, setSortName] = useState("choose");

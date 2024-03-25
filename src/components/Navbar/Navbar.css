@@ -2,24 +2,24 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: white;
+  background-color: var(--color-white);
+  max-width: 450px;
 }
 .nav-bar div {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 3rem;
   padding: 1.5rem 0;
-
   box-shadow: 0 4px 15px #000000;
-  /* filter: drop-shadow(0 4px 40px); */
+  box-shadow: 0 4px 40px #00000013;
 
-  border-radius: 25px 25px 0 0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .nav-bar svg {
-  fill: black;
-  height: 24px;
+  width: 1.5rem;
+  height: 2rem;
 }
 
 .nav-bar .active svg {

@@ -10,13 +10,12 @@ const Onboarding = () => {
         speed="1"
         style={{ width: "320px", height: "320px" }}
         loop
-        autoplay
-      ></dotlottie-player>
+        autoplay></dotlottie-player>
 
       {/*  <img src="/images/onboarding.png" alt="women" /> */}
       <h2>Biggest Sell at Your Fingerprint</h2>
       <h3>Find your best products from popular shop without any delay</h3>
-      <Link className="btn" to="/">
+      <Link className="btn" to="/home">
         Get Started
       </Link>
     </section>

@@ -14,6 +14,7 @@ import {
   togglePopupContext,
   filteredDataContext
 } from "./context/Context";
+import Favorite from "./pages/Favorite/Favorite";
 
 function App() {
   // State for Loading Page
@@ -67,14 +68,15 @@ function App() {
                     ) : (
                       <BrowserRouter>
                         <Routes>
-                          <Route path="/" element={<Home />} />
+                          <Route path="/home" element={<Home />} />
                           <Route path="/loading" element={<Loading />} />
-                          <Route path="/onboarding" element={<Onboarding />} />
+                          <Route path="/" element={<Onboarding />} />
                           <Route path="/search" element={<SearchPage />} />
                           <Route
                             path="/details/:id"
                             element={<DetailsPage />}
                           />
+                          <Route path="/favorite" element={<Favorite />} />
                         </Routes>
                       </BrowserRouter>
                     )}

@@ -1,20 +1,68 @@
 import "./Sort.css";
+import { useContext, useState } from "react";
+import { fetchProductsContext } from "../../context/Context";
 
-const Sort = () => {
-  // * To Dos
-  // - UserInput bei onchange/onclick holen (bei select/option lassen, lieber was anderes wie bei wetterapp?)
-  // - Sortierfunktion für 2x price, 1x rating analog zu movieDB
-  // - Select/Option in article/p ändern
-  // - globalen Fetch sortieren? bzw. eigentlich das an RenderProducts weitergegebene Ergebnis - wie? Haben wir globalen state für gefilterte/gesuchte Produkte?
+// props for filteredData and setFilteredData from SearchPage.jsx
+const Sort = ({ filteredData, setFilteredData }) => {
+  // import context for fetched product data
+  const { productsData } = useContext(fetchProductsContext);
+
+  // state for chosen sort mechanism
+  const [sortName, setSortName] = useState("choose");
+
+  // func sort by lowest price
+  const sortLowPrice = () => {
+    filteredData.length > 0
+      ? setFilteredData(
+          filteredData.toSorted((a, b) => Number(a.price) - Number(b.price))
+        )
+      : setFilteredData(
+          productsData.products.toSorted(
+            (a, b) => Number(a.price) - Number(b.price)
+          )
+        );
+    setSortName("Lowest Price");
+  };
+
+  // func ort by highest price
+  const sortHighPrice = () => {
+    filteredData.length > 0
+      ? setFilteredData(
+          filteredData.toSorted((a, b) => Number(b.price) - Number(a.price))
+        )
+      : setFilteredData(
+          productsData.products.toSorted(
+            (a, b) => Number(b.price) - Number(a.price)
+          )
+        );
+    setSortName("Highest Price");
+  };
+
+  // func sort by best rating
+  const sortRating = () => {
+    filteredData.length > 0
+      ? setFilteredData(
+          filteredData.toSorted((a, b) => Number(b.rating) - Number(a.rating))
+        )
+      : setFilteredData(
+          productsData.products.toSorted(
+            (a, b) => Number(b.rating) - Number(a.rating)
+          )
+        );
+    setSortName("Best Rating");
+  };
 
   return (
     <section className="sort">
       <p>Sort by:</p>
-      <select name="sort" id="sort">
-        <option value="l-price">Lowest Price</option>
-        <option value="h-price">Highest Price</option>
-        <option value="rate">Rating</option>
-      </select>
+      <article className="dropdown">
+        <p>{sortName}</p>
+        <div className="dropdown-content">
+          <p onClick={sortLowPrice}>Lowest Price</p>
+          <p onClick={sortHighPrice}>Highest Price</p>
+          <p onClick={sortRating}>Rating</p>
+        </div>
+      </article>
     </section>
   );
 };

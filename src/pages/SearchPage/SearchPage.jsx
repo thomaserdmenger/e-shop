@@ -223,7 +223,7 @@ const SearchPage = () => {
             <Search />
             <FilterButton />
           </div>
-          <Sort />
+          <Sort filteredData={filteredData} setFilteredData={setFilteredData} />
           <RenderProducts filteredData={filteredData} />
           <Navbar />
         </main>

@@ -1,6 +1,8 @@
 .back {
   display: flex;
   align-items: center;
+
+  position: relative;
 }
 
 .back-arrow {
@@ -9,8 +11,8 @@
   height: 25px;
   fill: var(--color-darkblue);
   position: absolute;
-  left: 20px;
-  top: 40px;
+  left: 0;
+  top: -0.5rem;
 }
 
 .back-arrow.dark {

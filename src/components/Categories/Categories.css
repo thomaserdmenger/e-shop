@@ -6,7 +6,7 @@
   /* filter: drop-shadow(0 4px 40px #00000010);*/
   box-shadow: 0 4px 40px #00000013;
   border-radius: 10px;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 .categories-flex {
@@ -15,6 +15,8 @@
   gap: 1rem;
   overflow-x: scroll;
   padding-top: 1rem;
+
+  padding-inline: 1.25rem;
 }
 
 .categories-flex::-webkit-scrollbar {
@@ -22,7 +24,6 @@
 }
 
 .categories-flex > div {
-  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,5 +35,6 @@
 .categories-flex p {
   text-transform: capitalize;
   font-size: 0.75rem;
-  width: 50px;
+  width: 5rem;
+  text-align: center;
 }

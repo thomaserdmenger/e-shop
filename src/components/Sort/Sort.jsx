@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import {
   fetchProductsContext,
   filteredDataContext,
-  darkModeContext
+  darkModeContext,
 } from "../../context/Context";
 
 // props for filteredData and setFilteredData from SearchPage.jsx
@@ -20,6 +20,9 @@ const Sort = () => {
   // Global State for DarkMode Context
   const { darkMode } = useContext(darkModeContext);
 
+  // state for opening sorting options
+  const [sortItem, setSortItem] = useState(false);
+
   // func sort by lowest price
   const sortLowPrice = () => {
     filteredData.length > 0
@@ -32,6 +35,7 @@ const Sort = () => {
           )
         );
     setSortName("Lowest Price");
+    setSortItem(false);
   };
 
   // func ort by highest price
@@ -46,6 +50,7 @@ const Sort = () => {
           )
         );
     setSortName("Highest Price");
+    setSortItem(false);
   };
 
   // func sort by best rating
@@ -60,18 +65,27 @@ const Sort = () => {
           )
         );
     setSortName("Best Rating");
+    setSortItem(false);
+  };
+
+  // toggle sorting options
+  const chooseSort = () => {
+    setSortItem((sortItem) => !sortItem);
   };
 
   return (
     <section className="sort">
       <p>Sort by:</p>
       <article className={darkMode ? "dropdown dark" : "dropdown"}>
-        <p>{sortName}</p>
+        <p onClick={chooseSort}>{sortName}</p>
         <div
-          className={darkMode ? "dropdown-content dark" : "dropdown-content"}>
+          className={`${sortItem ? "show" : "hide"} ${
+            darkMode ? "dropdown-content dark" : "dropdown-content"
+          }`}
+        >
           <p onClick={sortLowPrice}>Lowest Price</p>
           <p onClick={sortHighPrice}>Highest Price</p>
-          <p onClick={sortRating}>Rating</p>
+          <p onClick={sortRating}>Best Rating</p>
         </div>
       </article>
     </section>

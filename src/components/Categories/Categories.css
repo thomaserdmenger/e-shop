@@ -12,7 +12,6 @@
 .categories-flex {
   display: flex;
   align-items: flex-start;
-
   gap: 1rem;
   overflow-x: scroll;
   padding-top: 1rem;

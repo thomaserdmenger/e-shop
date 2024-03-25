@@ -14,11 +14,11 @@ const Home = () => {
       <h1>Find your favourite Product</h1>
       <div className="search-filter">
         <Search />
-        <SearchCategories />
         <Link to="/search">
           <FilterButton />
         </Link>
       </div>
+      <SearchCategories />
       <FetchCategories />
       <Categories />
       <RenderRandom />

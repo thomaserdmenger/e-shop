@@ -13,7 +13,6 @@ const Categories = () => {
   return (
     <section className="categories">
       <FetchCategories />
-      <h1>Categories</h1>
       <div className="categories-flex">
         {categoriesData ? (
           categoriesData.map((item, index) => (

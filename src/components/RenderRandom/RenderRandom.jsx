@@ -8,8 +8,6 @@ const RenderRandom = () => {
   // * useContext für FetchCategories
   const { productsData } = useContext(fetchProductsContext);
 
-  console.log(productsData.products[Math.floor(Math.random() * 101)].title);
-  // console.log(Math.ceil(Math.random() * 4));
   return (
     <>
       <FetchProducts />

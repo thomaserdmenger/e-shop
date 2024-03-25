@@ -12,3 +12,9 @@
   left: 20px;
   top: 40px;
 }
+
+.back-arrow.dark {
+  fill: var(--color-dm-blue);
+  background-color: white;
+  border-radius: 100%;
+}

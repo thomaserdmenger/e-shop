@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <div className="wrapper">
+      <div className={darkMode ? "wrapper dark" : "wrapper"}>
         <fetchProductsContext.Provider
           value={{ productsData, setProductsData }}>
           <fetchCategoriesContext.Provider

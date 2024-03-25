@@ -2,7 +2,8 @@ import "./FilterPopup.css";
 import BackButton from "../BackButton/BackButton";
 import {
   fetchCategoriesContext,
-  togglePopupContext
+  togglePopupContext,
+  darkModeContext
 } from "../../context/Context";
 import { useContext } from "react";
 
@@ -19,6 +20,9 @@ const FilterPopup = ({
 
   // Import Context to Toggle Popup
   const { togglePopup, setTogglePopup } = useContext(togglePopupContext);
+
+  // Import DarkMode Context
+  const { darkMode } = useContext(darkModeContext);
 
   const handlePriceClick = (value) => {
     if (priceVal === value) {
@@ -54,13 +58,14 @@ const FilterPopup = ({
         <BackButton />
         <h2>Filters</h2>
         <svg
-          className="popup__icon-close"
+          className={darkMode ? "popup__icon-close dark" : "popup__icon-close"}
           onClick={handleCloseClick}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
         </svg>
       </div>
+      {/* catVal === cat ? "popup__button--selected" : "popup__button" */}
       <section className="popup__categories">
         <h3>Categories</h3>
         <div>
@@ -70,7 +75,11 @@ const FilterPopup = ({
                 key={index}
                 onClick={(e) => handleCatClick(e.target.value)}
                 className={
-                  catVal === cat ? "popup__button--selected" : "popup__button"
+                  catVal === cat
+                    ? darkMode
+                      ? "popup__button--selected dark"
+                      : "popup__button--selected"
+                    : "popup__button"
                 }
                 value={cat}>
                 {cat.replace("-", " ")}
@@ -85,28 +94,44 @@ const FilterPopup = ({
           <button
             onClick={() => handlePriceClick("20")}
             className={
-              priceVal == "20" ? "popup__button--selected" : "popup__button"
+              priceVal == "20"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected "
+                : "popup__button"
             }>
             0 - 20 €
           </button>
           <button
             onClick={() => handlePriceClick("50")}
             className={
-              priceVal == "50" ? "popup__button--selected" : "popup__button"
+              priceVal == "50"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected "
+                : "popup__button"
             }>
             20 - 50 €
           </button>
           <button
             onClick={() => handlePriceClick("100")}
             className={
-              priceVal == "100" ? "popup__button--selected" : "popup__button"
+              priceVal == "100"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected "
+                : "popup__button"
             }>
             50 - 100 €
           </button>
           <button
             onClick={() => handlePriceClick("100.01")}
             className={
-              priceVal == "100.01" ? "popup__button--selected" : "popup__button"
+              priceVal == "100.01"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected "
+                : "popup__button"
             }>
             über 100 €
           </button>
@@ -119,7 +144,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Apple"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Apple
@@ -128,7 +155,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Samsung"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Samsung
@@ -137,7 +166,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "L'Oreal Paris"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             L'Oreal Paris
@@ -146,7 +177,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Huawei"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Huawei
@@ -155,7 +188,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Microsoft Surface"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Microsoft Surface
@@ -164,7 +199,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Golden"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Golden
@@ -173,7 +210,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "IELGY"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             IELGY
@@ -182,7 +221,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Stainless"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Stainless
@@ -191,7 +232,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "LouisWill"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             LouisWill
@@ -200,7 +243,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "BRAVE BULL"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             BRAVE BULL
@@ -209,7 +254,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "Xiangle"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             Xiangle
@@ -218,7 +265,9 @@ const FilterPopup = ({
             onClick={(e) => handleBrandClick(e.target.textContent)}
             className={
               brandsVal === "JIEPOLLY"
-                ? "popup__button--selected"
+                ? darkMode
+                  ? "popup__button--selected dark"
+                  : "popup__button--selected"
                 : "popup__button"
             }>
             JIEPOLLY
@@ -230,7 +279,7 @@ const FilterPopup = ({
           onClick={() => {
             setTogglePopup(!togglePopup);
           }}
-          className="btn btn--popup">
+          className={darkMode ? "btn dark btn--popup" : "btn btn--popup"}>
           Apply Filter
         </button>
       </div>

@@ -3,6 +3,7 @@
   min-width: 100vw;
   padding-inline: 1rem;
   padding-block-start: 2.5rem;
+  padding-block-end: 3rem;
 }
 
 .popup__header {
@@ -19,6 +20,17 @@
 .popup__icon-close {
   width: 25px;
   fill: var(--color-darkblue);
+  /* border-radius: 100%; */
+  /* border: 1px solid var(--color-darkblue); */
+  position: relative;
+}
+
+.popup__icon-close.dark {
+  width: 25px;
+  fill: var(--color-dm-blue);
+  border-radius: 100%;
+  background-color: white;
+  border-radius: 100%;
 }
 
 .popup__categories,
@@ -54,6 +66,10 @@
   border-radius: 15px;
   background-color: var(--color-darkblue);
   color: var(--color-white);
+}
+
+.popup__button--selected.dark {
+  background-color: var(--color-dm-blue);
 }
 
 .popup__button::first-letter,

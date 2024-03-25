@@ -1,13 +1,16 @@
 import "./BackButton.css";
 import { useNavigate } from "react-router-dom";
+import { darkModeContext } from "../../context/Context";
+import { useContext } from "react";
 
 const BackButton = () => {
   const navigate = useNavigate();
+  const { darkMode } = useContext(darkModeContext);
 
   return (
     <section className="back">
       <svg
-        className="back-arrow"
+        className={darkMode ? "back-arrow dark" : "back-arrow"}
         onClick={() => navigate(-1)}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512">

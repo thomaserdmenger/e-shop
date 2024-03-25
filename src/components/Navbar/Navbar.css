@@ -2,24 +2,36 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: var(--color-white);
   max-width: 450px;
 }
-.nav-bar div {
+.nav-bar-container {
+  background-color: var(--color-white);
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 1.5rem 0;
-  box-shadow: 0 4px 15px #000000;
   box-shadow: 0 4px 40px #00000013;
-
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+}
+
+.nav-bar-container.dark {
+  background-color: var(--color-dm-black);
+  box-shadow: 0 4px 40px #f7f1f113;
+  border-top: 1px solid rgb(135, 133, 133);
 }
 
 .nav-bar svg {
   width: 1.5rem;
   height: 2rem;
+}
+
+.nav-bar.dark svg {
+  fill: var(--color-white);
+}
+
+.nav-bar.dark .active svg {
+  fill: var(--color-dm-blue);
 }
 
 .nav-bar .active svg {

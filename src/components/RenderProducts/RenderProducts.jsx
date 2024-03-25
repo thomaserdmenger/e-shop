@@ -147,6 +147,16 @@ const RenderProducts = ({ noResult }) => {
           ))}
       </section>
 
+      {/* Filtered Data with False Value because there is no result after filtering */}
+      {filteredData.includes("noResult") && (
+        <section className="noresults">
+          <p>
+            No results found for your search query. Please change the filter to
+            get results.
+          </p>
+        </section>
+      )}
+
       {/* Load-More-Button for filtered Data, if more than 20 */}
       {filteredData.length > 20 && (
         <div className="render-btn">
@@ -163,16 +173,6 @@ const RenderProducts = ({ noResult }) => {
             Load More
           </Link>
         </div>
-      )}
-
-      {/* Filtered Data with False Value because there is no result after filtering */}
-      {filteredData.includes("noResult") && (
-        <section className="noresults">
-          <p>
-            No results found for your search query. Please change the filter to
-            get results.
-          </p>
-        </section>
       )}
     </>
   );

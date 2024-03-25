@@ -19,11 +19,12 @@ const SearchPage = () => {
 
   // Import User Input from Global Context
   const { userInput } = useContext(userInputContext);
-  console.log(userInput);
+  // console.log(userInput);
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
   // console.log("filteredData: " + filteredData);
+  console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -41,7 +42,7 @@ const SearchPage = () => {
   const [brandsVal, setBrandsVal] = useState("");
   // console.log(brandsVal);
 
-  // filter all products
+  // Filter all products
   useEffect(() => {
     let filter = productsData?.products?.filter((item) => {
       let finalPriceVal = "";
@@ -65,7 +66,7 @@ const SearchPage = () => {
       ) {
         return item.category;
       } else if (brandsVal === item.brand && priceVal === "" && catVal === "") {
-        return item.category;
+        return item.brand;
       } else if (
         brandsVal === item.brand &&
         catVal === item.category &&
@@ -186,6 +187,15 @@ const SearchPage = () => {
 
     setFilteredData(filter);
   }, [catVal, priceVal, brandsVal]);
+
+  // ! Filter Product Data by User Input
+  useEffect(() => {
+    const filter = productsData?.products?.filter((item) => {
+      return item.title.toLowerCase().includes(userInput.toLowerCase());
+    });
+
+    setFilteredData(filter);
+  }, [userInput, productsData]);
 
   return (
     <>

@@ -8,8 +8,17 @@
 .popup__header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-block-end: 4.5rem;
+}
+
+.popup__header h2 {
+  margin-block-start: 0.1rem;
+}
+
+.popup__icon-close {
+  width: 25px;
+  fill: var(--color-darkblue);
 }
 
 .popup__categories,

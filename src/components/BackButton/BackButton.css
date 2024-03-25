@@ -1,4 +1,10 @@
+.back {
+  display: flex;
+  align-items: center;
+}
+
 .back-arrow {
+  margin-block-start: 0.4rem;
   width: 25px;
   height: 25px;
   fill: var(--color-darkblue);

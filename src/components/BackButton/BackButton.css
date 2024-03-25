@@ -1,8 +1,20 @@
+.back {
+  display: flex;
+  align-items: center;
+}
+
 .back-arrow {
+  margin-block-start: 0.4rem;
   width: 25px;
   height: 25px;
   fill: var(--color-darkblue);
   position: absolute;
   left: 20px;
   top: 40px;
+}
+
+.back-arrow.dark {
+  fill: var(--color-dm-blue);
+  background-color: white;
+  border-radius: 100%;
 }

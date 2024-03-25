@@ -24,6 +24,30 @@ html {
   font-family: poppins-regular;
 }
 
+:root {
+  /* ! Light Mode */
+  /* brand */
+  --color-darkblue: #364fd4;
+
+  /* gray colors */
+  --color-heading-darkgray: #1e2126;
+  --color-filterwords-gray: #5c6574;
+  /* --color-onboarding-subtext-and-rating-and-detailpage-plus-bg-gray */
+  --color-gray1: #828b9a;
+  /* --color-text-viewall-search-sortby-detailpage--gray */
+  --color-gray2: #b9c1cc;
+  /*   --color-detailpage-minus-bg--gray */
+  --color-gray3: #cad1d9;
+  /*   --color-searchbar-and-picture-bg-gray */
+  --color-gray4: #f0f3f8;
+  --color-white: #ffffff;
+
+  /* ! Dark Mode */
+  --color-dm-black: #2a2d32;
+  --color-dm-blue: #1e90ff;
+  --color-dm-box-shadow: #f7f1f113;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -40,22 +64,9 @@ img {
   min-height: 100vh;
 }
 
-:root {
-  /* brand */
-  --color-darkblue: #364fd4;
-
-  /* gray colors */
-  --color-heading-darkgray: #1e2126;
-  --color-filterwords-gray: #5c6574;
-  /* --color-onboarding-subtext-and-rating-and-detailpage-plus-bg-gray */
-  --color-gray1: #828b9a;
-  /* --color-text-viewall-search-sortby-detailpage--gray */
-  --color-gray2: #b9c1cc;
-  /*   --color-detailpage-minus-bg--gray */
-  --color-gray3: #cad1d9;
-  /*   --color-searchbar-and-picture-bg-gray */
-  --color-gray4: #f0f3f8;
-  --color-white: #ffffff;
+.wrapper.dark {
+  background-color: var(--color-dm-black);
+  color: var(--color-white);
 }
 
 h1 {
@@ -90,6 +101,11 @@ h4 {
   cursor: pointer;
 }
 
+.btn.dark {
+  background-color: var(--color-dm-blue);
+  border: 1px solid var(--color-dm-blue);
+}
+
 a {
   text-decoration: none;
   color: unset;
@@ -98,7 +114,6 @@ a {
 /* ! Styling Render Divs (Search + Home Popular) */
 .render {
   padding: 1.25rem;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -109,13 +124,10 @@ a {
 .render article {
   display: flex;
   flex-direction: column;
-
   border-radius: 12px;
   overflow: hidden;
-
   box-shadow: 0 4px 40px #00000013;
   cursor: pointer;
-
   padding-bottom: 1rem;
 }
 
@@ -151,13 +163,17 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   margin-bottom: 0.5rem;
 }
 
+/* # Anpassung über DarkMode State in RenderProducts und RenderRandom */
 .render-title p {
   color: var(--color-darkblue);
   font-family: poppins-semibold;
+}
+
+.render-title.dark p {
+  color: var(--color-dm-blue);
 }
 
 .render-btn {

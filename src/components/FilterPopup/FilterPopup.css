@@ -3,13 +3,36 @@
   min-width: 100vw;
   padding-inline: 1rem;
   padding-block-start: 2.5rem;
+  padding-block-end: 3rem;
 }
 
 .popup__header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-block-end: 4.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.popup__header h2 {
+  margin-block-start: 0.1rem;
+}
+
+.popup__icon-close {
+  width: 25px;
+  fill: var(--color-darkblue);
+  position: absolute;
+  right: 1rem;
+}
+
+.popup__icon-close.dark {
+  width: 25px;
+  fill: var(--color-dm-blue);
+  border-radius: 100%;
+  background-color: white;
+  border-radius: 100%;
 }
 
 .popup__categories,
@@ -47,6 +70,10 @@
   color: var(--color-white);
 }
 
+.popup__button--selected.dark {
+  background-color: var(--color-dm-blue);
+}
+
 .popup__button::first-letter,
 .popup__button--selected::first-letter {
   text-transform: uppercase;
@@ -61,5 +88,5 @@
   display: flex;
   width: 100%;
   padding-inline: 1rem;
-  margin-block-start: 6rem;
+  margin-block-start: 4rem;
 }

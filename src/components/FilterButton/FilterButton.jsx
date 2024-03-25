@@ -1,14 +1,15 @@
 import "./FilterButton.css";
-import { togglePopupContext } from "../../context/Context";
+import { togglePopupContext, darkModeContext } from "../../context/Context";
 import { useContext } from "react";
 
 const FilterButton = () => {
   const { togglePopup, setTogglePopup } = useContext(togglePopupContext);
+  const { darkMode } = useContext(darkModeContext);
 
   return (
     <>
       <button
-        className="filter__button"
+        className={darkMode ? "filter__button dark" : "filter__button"}
         onClick={() => setTogglePopup(!togglePopup)}>
         <svg
           width="24"

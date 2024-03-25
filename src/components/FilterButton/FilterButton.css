@@ -10,3 +10,7 @@
 .filter__button svg {
   fill: var(--color-white);
 }
+
+.filter__button.dark {
+  background-color: var(--color-dm-blue);
+}

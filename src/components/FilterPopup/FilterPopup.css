@@ -20,8 +20,6 @@
 .popup__icon-close {
   width: 25px;
   fill: var(--color-darkblue);
-  /* border-radius: 100%; */
-  /* border: 1px solid var(--color-darkblue); */
   position: relative;
 }
 
@@ -86,5 +84,5 @@
   display: flex;
   width: 100%;
   padding-inline: 1rem;
-  margin-block-start: 6rem;
+  margin-block-start: 4rem;
 }

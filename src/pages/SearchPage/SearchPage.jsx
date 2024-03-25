@@ -10,7 +10,8 @@ import {
   userInputContext,
   filteredDataContext,
   fetchProductsContext,
-  catValContext
+  catValContext,
+  darkModeContext
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -35,6 +36,9 @@ const SearchPage = () => {
 
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
+
+  // State for Dark Mode from Context
+  const { darkMode } = useContext(darkModeContext);
 
   // Filter all products
   useEffect(() => {

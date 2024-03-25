@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import {
   fetchProductsContext,
   filteredDataContext,
+  darkModeContext
 } from "../../context/Context";
 
 // props for filteredData and setFilteredData from SearchPage.jsx
@@ -15,6 +16,9 @@ const Sort = () => {
 
   // state for chosen sort mechanism
   const [sortName, setSortName] = useState("choose");
+
+  // Global State for DarkMode Context
+  const { darkMode } = useContext(darkModeContext);
 
   // func sort by lowest price
   const sortLowPrice = () => {
@@ -61,9 +65,10 @@ const Sort = () => {
   return (
     <section className="sort">
       <p>Sort by:</p>
-      <article className="dropdown">
+      <article className={darkMode ? "dropdown dark" : "dropdown"}>
         <p>{sortName}</p>
-        <div className="dropdown-content">
+        <div
+          className={darkMode ? "dropdown-content dark" : "dropdown-content"}>
           <p onClick={sortLowPrice}>Lowest Price</p>
           <p onClick={sortHighPrice}>Highest Price</p>
           <p onClick={sortRating}>Rating</p>

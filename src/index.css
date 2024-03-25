@@ -131,6 +131,11 @@ a {
   padding-bottom: 1rem;
 }
 
+.render.dark article {
+  background-color: var(--color-dm-black);
+  box-shadow: 0 0 40px var(--color-dm-box-shadow);
+}
+
 .render article img {
   height: 10rem;
   width: 100%;
@@ -157,6 +162,14 @@ a {
   align-items: center;
 }
 
+.render-title svg {
+  fill: var(--color-darkblue);
+}
+
+.render-title.dark svg {
+  fill: var(--color-dm-blue);
+}
+
 .render-title h4 {
   /* max-width, damit die längeren Produktnamen nicht umbrechen, sondern versteckt werden; bis 11ch ändert sich nichts am restlichen Design; für responsive in media queries entsprechend anpassen */
   max-width: 11ch;
@@ -166,7 +179,6 @@ a {
   margin-bottom: 0.5rem;
 }
 
-/* # Anpassung über DarkMode State in RenderProducts und RenderRandom */
 .render-title p {
   color: var(--color-darkblue);
   font-family: poppins-semibold;

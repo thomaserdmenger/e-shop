@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.dropdown.dark p {
+  color: var(--color-dm-blue);
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -26,7 +30,14 @@
   min-width: 10rem;
   box-shadow: 0 4px 40px #00000013;
   padding: 0 1rem;
+  padding-top: 0.5rem;
   z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content.dark {
+  background-color: var(--color-dm-black);
+  box-shadow: 0 4px 40px #f7f1f113;
 }
 
 .dropdown:hover .dropdown-content {

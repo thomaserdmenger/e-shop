@@ -3,7 +3,7 @@ import BackButton from "../../components/BackButton/BackButton";
 import Navbar from "../../components/Navbar/Navbar";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchProductsContext } from "../../context/Context";
+import { fetchProductsContext, darkModeContext } from "../../context/Context";
 
 const DetailsPage = () => {
   // counter for product count:
@@ -17,6 +17,9 @@ const DetailsPage = () => {
 
   // ID of link:
   const { id } = useParams();
+
+  // DarkMode Context
+  const { darkMode } = useContext(darkModeContext);
 
   // find link-id in global fetch:
   useEffect(() => {
@@ -43,7 +46,7 @@ const DetailsPage = () => {
         <h2 className="product-heading">{singleProduct?.title}</h2>
 
         {/* product card: */}
-        <article className="product-card">
+        <article className={darkMode ? "product-card dark" : "product-card"}>
           <img src={singleProduct?.thumbnail} alt={singleProduct?.title} />
           <div className="product-title-count">
             <h2>{singleProduct?.title}</h2>
@@ -130,7 +133,7 @@ const DetailsPage = () => {
           </div>
 
           {/* Stock + Price: */}
-          <div className="product-price">
+          <div className={darkMode ? "product-price dark" : "product-price"}>
             <p>{singleProduct?.stock} pieces in stock</p>
             <h2>$ {singleProduct?.price}</h2>
           </div>
@@ -144,7 +147,7 @@ const DetailsPage = () => {
 
         {/* Add to Cart Button: */}
         <div className="product-btn">
-          <Link className="btn">Add to Cart</Link>
+          <Link className={darkMode ? "btn dark" : "btn"}>Add to Cart</Link>
         </div>
       </section>
       <Navbar />

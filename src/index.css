@@ -45,6 +45,7 @@ html {
   /* ! Dark Mode */
   --color-dm-black: #2a2d32;
   --color-dm-blue: #1e90ff;
+  --color-dm-box-shadow: #f7f1f113;
 }
 
 * {

@@ -19,28 +19,21 @@ const SearchPage = () => {
 
   // Import User Input from Global Context
   const { userInput } = useContext(userInputContext);
-  // console.log(userInput);
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
-  // console.log("filteredData: " + filteredData);
-  // console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
-  // console.log(productsData);
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
-  // console.log(catVal);
 
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");
-  // console.log(priceVal);
 
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
-  // console.log(brandsVal);
 
   // Filter all products
   useEffect(() => {
@@ -184,40 +177,37 @@ const SearchPage = () => {
     }
 
     // (catVall || priceVal || brandsVal) => Prüft, ob mindestens eine der Variablen einen Wert hat, der nicht gleich einem leeren String ist. Einen Wert erhalten sie, wenn sie im Popup ausgewählt werden und die API auch einen passenden Wert zurückgibt.
-    // console.log(filter);
     setFilteredData(filter);
   }, [catVal, priceVal, brandsVal]);
 
   // ! Filter Product Data by User Input
   useEffect(() => {
-    // search all products data
+    // search all products data:
     if (filteredData.length === 0 && userInput.length >= 1) {
       setFilteredData(
         productsData?.products?.filter((item) => {
           return item.title.toLowerCase().includes(userInput.toLowerCase());
         })
       );
-      // search filtered Data
-    } else if (filteredData.length > 0 && !filteredData.includes("noResult")) {
-      setFilteredData(
-        filteredData?.filter((item) => {
-          return item.title.toLowerCase().includes(userInput.toLowerCase());
-        })
-      );
-      // error if user input not found
+      // search filtered Data:
     } else if (
-      !filteredData.includes(userInput.toLowerCase()) &&
-      userInput.length !== 0
+      filteredData.length > 0 &&
+      !filteredData.includes("noResult") &&
+      userInput.length >= 1
     ) {
-      setFilteredData(["noResult"]);
+      const filter = filteredData?.filter((item) =>
+        item.title.toLowerCase().includes(userInput.toLowerCase())
+      );
+      if (filter.length === 0) {
+        return setFilteredData(["noResult"]);
+      } else {
+        return setFilteredData(filter);
+      }
     }
   }, [userInput, productsData]);
 
-  console.log("filteredData:", filteredData);
-  console.log("user Input:", userInput);
-
   return (
-    <>
+    <section className="searchpage">
       {togglePopup ? (
         <FilterPopup
           catVal={catVal}
@@ -229,7 +219,6 @@ const SearchPage = () => {
         />
       ) : (
         <main>
-          <h1>SearchPage</h1>
           <div className="search-filter">
             <Search />
             <FilterButton />
@@ -239,7 +228,7 @@ const SearchPage = () => {
           <Navbar />
         </main>
       )}
-    </>
+    </section>
   );
 };
 

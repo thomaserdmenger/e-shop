@@ -60,7 +60,8 @@ const DetailsPage = () => {
                 height="24"
                 viewBox="0 0 16 16"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <rect
                   x="-4"
                   y="-4"
@@ -87,7 +88,8 @@ const DetailsPage = () => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <rect width="24" height="24" rx="3" fill="#828B9A" />
                 <g clipPath="url(#clip0_3610_316)">
                   <path
@@ -116,7 +118,8 @@ const DetailsPage = () => {
               height="16"
               viewBox="0 0 16 16"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g clipPath="url(#clip0_1_1364)">
                 <path
                   d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"

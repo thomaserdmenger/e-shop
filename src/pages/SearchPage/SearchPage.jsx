@@ -9,7 +9,7 @@ import {
   togglePopupContext,
   userInputContext,
   filteredDataContext,
-  fetchProductsContext,
+  fetchProductsContext
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 

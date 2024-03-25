@@ -9,7 +9,7 @@ import {
   togglePopupContext,
   userInputContext,
   filteredDataContext,
-  fetchProductsContext
+  fetchProductsContext,
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -184,17 +184,25 @@ const SearchPage = () => {
     }
 
     // (catVall || priceVal || brandsVal) => Prüft, ob mindestens eine der Variablen einen Wert hat, der nicht gleich einem leeren String ist. Einen Wert erhalten sie, wenn sie im Popup ausgewählt werden und die API auch einen passenden Wert zurückgibt.
-
+    // console.log(filter);
     setFilteredData(filter);
   }, [catVal, priceVal, brandsVal]);
 
   // ! Filter Product Data by User Input
   useEffect(() => {
-    const filter = productsData?.products?.filter((item) => {
-      return item.title.toLowerCase().includes(userInput.toLowerCase());
-    });
-
-    setFilteredData(filter);
+    if (filteredData.length === 0 && userInput !== "") {
+      setFilteredData(
+        productsData?.products?.filter((item) => {
+          return item.title.toLowerCase().includes(userInput.toLowerCase());
+        })
+      );
+    } else if (filteredData.length > 0 && !filteredData.includes("noResult")) {
+      setFilteredData(
+        filteredData?.filter((item) => {
+          return item.title.toLowerCase().includes(userInput.toLowerCase());
+        })
+      );
+    }
   }, [userInput, productsData]);
 
   return (

@@ -11,6 +11,9 @@
   align-items: center;
   justify-content: space-between;
   margin-block-end: 4.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .popup__header h2 {
@@ -20,7 +23,8 @@
 .popup__icon-close {
   width: 25px;
   fill: var(--color-darkblue);
-  position: relative;
+  position: absolute;
+  right: 1rem;
 }
 
 .popup__icon-close.dark {

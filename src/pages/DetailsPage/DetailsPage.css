@@ -11,6 +11,8 @@
   font-family: poppins-regular;
   text-align: center;
   margin-block-start: -0.6rem;
+  text-align: center;
+  padding-inline: 2rem;
 }
 
 /* Product Card Area: */
@@ -56,6 +58,7 @@
 
 .product-count svg {
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .product-rating {

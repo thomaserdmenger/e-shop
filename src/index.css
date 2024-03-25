@@ -172,6 +172,10 @@ a {
   font-family: poppins-semibold;
 }
 
+.render-title.dark p {
+  color: var(--color-dm-blue);
+}
+
 .render-btn {
   display: flex;
   justify-content: center;

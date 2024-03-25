@@ -55,7 +55,7 @@ const FilterPopup = ({
   return (
     <main className="popup">
       <div className="popup__header">
-        <BackButton />
+        {/* <BackButton /> */}
         <h2>Filters</h2>
         <svg
           className={darkMode ? "popup__icon-close dark" : "popup__icon-close"}

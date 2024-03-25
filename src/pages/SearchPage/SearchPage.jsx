@@ -9,7 +9,7 @@ import {
   togglePopupContext,
   userInputContext,
   filteredDataContext,
-  fetchProductsContext
+  fetchProductsContext,
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -24,7 +24,7 @@ const SearchPage = () => {
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
   // console.log("filteredData: " + filteredData);
-  console.log(filteredData);
+  // console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -184,18 +184,37 @@ const SearchPage = () => {
     }
 
     // (catVall || priceVal || brandsVal) => Prüft, ob mindestens eine der Variablen einen Wert hat, der nicht gleich einem leeren String ist. Einen Wert erhalten sie, wenn sie im Popup ausgewählt werden und die API auch einen passenden Wert zurückgibt.
-
+    // console.log(filter);
     setFilteredData(filter);
   }, [catVal, priceVal, brandsVal]);
 
   // ! Filter Product Data by User Input
   useEffect(() => {
-    const filter = productsData?.products?.filter((item) => {
-      return item.title.toLowerCase().includes(userInput.toLowerCase());
-    });
-
-    setFilteredData(filter);
+    // search all products data
+    if (filteredData.length === 0 && userInput.length >= 1) {
+      setFilteredData(
+        productsData?.products?.filter((item) => {
+          return item.title.toLowerCase().includes(userInput.toLowerCase());
+        })
+      );
+      // search filtered Data
+    } else if (filteredData.length > 0 && !filteredData.includes("noResult")) {
+      setFilteredData(
+        filteredData?.filter((item) => {
+          return item.title.toLowerCase().includes(userInput.toLowerCase());
+        })
+      );
+      // error if user input not found
+    } else if (
+      !filteredData.includes(userInput.toLowerCase()) &&
+      userInput.length !== 0
+    ) {
+      setFilteredData(["noResult"]);
+    }
   }, [userInput, productsData]);
+
+  console.log("filteredData:", filteredData);
+  console.log("user Input:", userInput);
 
   return (
     <>
@@ -216,7 +235,7 @@ const SearchPage = () => {
             <FilterButton />
           </div>
           <Sort />
-          <RenderProducts filteredData={filteredData} />
+          <RenderProducts />
           <Navbar />
         </main>
       )}

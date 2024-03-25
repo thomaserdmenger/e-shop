@@ -15,10 +15,16 @@
   width: 100%;
 }
 
-.searchbar__icon-container {
+.searchbar__icon-container1 {
   position: absolute;
-  top: 0.8rem;
+  top: 1rem;
   left: 1rem;
+}
+
+.searchbar__icon-container2 {
+  position: absolute;
+  top: 1rem;
+  left: 85%;
 }
 
 .searchbar__icon {

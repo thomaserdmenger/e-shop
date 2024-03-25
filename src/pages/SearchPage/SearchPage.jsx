@@ -9,7 +9,8 @@ import {
   togglePopupContext,
   userInputContext,
   filteredDataContext,
-  fetchProductsContext
+  fetchProductsContext,
+  catValContext
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -27,7 +28,7 @@ const SearchPage = () => {
   const { productsData } = useContext(fetchProductsContext);
 
   // State for Categories Buttons
-  const [catVal, setCatVal] = useState("");
+  const { catVal, setCatVal } = useContext(catValContext);
 
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");

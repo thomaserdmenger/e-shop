@@ -12,7 +12,8 @@ import {
   userInputContext,
   darkModeContext,
   togglePopupContext,
-  filteredDataContext
+  filteredDataContext,
+  catValContext
 } from "./context/Context";
 import Favorite from "./pages/Favorite/Favorite";
 
@@ -44,6 +45,9 @@ function App() {
   // Global State for filtered Data
   const [filteredData, setFilteredData] = useState([]);
 
+  // Global State for Category Values
+  const [catVal, setCatVal] = useState("");
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(!loading);
@@ -63,23 +67,25 @@ function App() {
                   value={{ togglePopup, setTogglePopup }}>
                   <filteredDataContext.Provider
                     value={{ filteredData, setFilteredData }}>
-                    {loading ? (
-                      <Loading />
-                    ) : (
-                      <BrowserRouter>
-                        <Routes>
-                          <Route path="/home" element={<Home />} />
-                          <Route path="/loading" element={<Loading />} />
-                          <Route path="/" element={<Onboarding />} />
-                          <Route path="/search" element={<SearchPage />} />
-                          <Route
-                            path="/details/:id"
-                            element={<DetailsPage />}
-                          />
-                          <Route path="/favorite" element={<Favorite />} />
-                        </Routes>
-                      </BrowserRouter>
-                    )}
+                    <catValContext.Provider value={{ catVal, setCatVal }}>
+                      {loading ? (
+                        <Loading />
+                      ) : (
+                        <BrowserRouter>
+                          <Routes>
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/loading" element={<Loading />} />
+                            <Route path="/" element={<Onboarding />} />
+                            <Route path="/search" element={<SearchPage />} />
+                            <Route
+                              path="/details/:id"
+                              element={<DetailsPage />}
+                            />
+                            <Route path="/favorite" element={<Favorite />} />
+                          </Routes>
+                        </BrowserRouter>
+                      )}
+                    </catValContext.Provider>
                   </filteredDataContext.Provider>
                 </togglePopupContext.Provider>
               </darkModeContext.Provider>

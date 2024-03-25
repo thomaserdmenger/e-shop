@@ -12,7 +12,7 @@ import {
   userInputContext,
   darkModeContext,
   togglePopupContext,
-  filteredDataContext,
+  filteredDataContext
 } from "./context/Context";
 
 function App() {
@@ -53,19 +53,15 @@ function App() {
     <>
       <div className="wrapper">
         <fetchProductsContext.Provider
-          value={{ productsData, setProductsData }}
-        >
+          value={{ productsData, setProductsData }}>
           <fetchCategoriesContext.Provider
-            value={{ categoriesData, setCategoriesData }}
-          >
+            value={{ categoriesData, setCategoriesData }}>
             <userInputContext.Provider value={{ userInput, setUserInput }}>
               <darkModeContext.Provider value={{ darkMode, setDarkMode }}>
                 <togglePopupContext.Provider
-                  value={{ togglePopup, setTogglePopup }}
-                >
+                  value={{ togglePopup, setTogglePopup }}>
                   <filteredDataContext.Provider
-                    value={{ filteredData, setFilteredData }}
-                  >
+                    value={{ filteredData, setFilteredData }}>
                     {loading ? (
                       <Loading />
                     ) : (

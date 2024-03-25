@@ -9,7 +9,7 @@ import {
   togglePopupContext,
   userInputContext,
   filteredDataContext,
-  fetchProductsContext,
+  fetchProductsContext
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
@@ -23,6 +23,8 @@ const SearchPage = () => {
 
   // Import filtered Data from Global Context
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
+  // console.log("filteredData: " + filteredData);
+  console.log(filteredData);
 
   // Import Global Product Fetch
   const { productsData } = useContext(fetchProductsContext);
@@ -30,66 +32,170 @@ const SearchPage = () => {
 
   // State for Categories Buttons
   const [catVal, setCatVal] = useState("");
-  console.log(catVal);
+  // console.log(catVal);
 
   // State for Price Buttons
   const [priceVal, setPriceVal] = useState("");
-  console.log(priceVal);
+  // console.log(priceVal);
 
   // State for Brand Buttons
   const [brandsVal, setBrandsVal] = useState("");
-  console.log(brandsVal);
+  // console.log(brandsVal);
 
-  // filter all products
+  // Filter all products
   useEffect(() => {
-    const filter = productsData?.products?.filter(
-      (item) =>
-        item.category === catVal ||
-        (priceVal === 20 ? item.price > 0 && item.price <= priceVal : "") ||
-        // (priceVal === 50 && item.price > 20.01 && item.price <= priceVal) ||
-        // (item.price > 50.01 && item.price <= priceVal) ||
-        // item.price > 100.01 ||
-        item.brand === brandsVal
+    let filter = productsData?.products?.filter((item) => {
+      let finalPriceVal = "";
 
-      // item.category === catVal && item.price > 0 && item.price <= priceVal //--> läuft ohne Zeilenumbruch
-      // item.category === catVal //--> läuft
+      if (priceVal === "20" && catVal === "" && brandsVal === "") {
+        finalPriceVal = "20";
+        return item.price > 0 && item.price <= finalPriceVal;
+      } else if (priceVal === "50" && catVal === "" && brandsVal === "") {
+        finalPriceVal = "50";
+        return item.price > 20.01 && item.price <= finalPriceVal;
+      } else if (priceVal === "100" && catVal === "" && brandsVal === "") {
+        finalPriceVal = "100";
+        return item.price > 50.01 && item.price <= finalPriceVal;
+      } else if (priceVal === "100.01" && catVal === "" && brandsVal === "") {
+        finalPriceVal = "100.01";
+        return item.price > 100.01;
+      } else if (
+        catVal === item.category &&
+        priceVal === "" &&
+        brandsVal === ""
+      ) {
+        return item.category;
+      } else if (brandsVal === item.brand && priceVal === "" && catVal === "") {
+        return item.brand;
+      } else if (
+        brandsVal === item.brand &&
+        catVal === item.category &&
+        priceVal === ""
+      ) {
+        return item.brand && item.category;
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return item.category && item.price > 0 && item.price <= finalPriceVal;
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return (
+          item.category && item.price > 20.01 && item.price <= finalPriceVal
+        );
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return (
+          item.category && item.price > 50.01 && item.price <= finalPriceVal
+        );
+      } else if (
+        item.category === catVal &&
+        brandsVal === "" &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.category && item.price > 100.01;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return item.brand && item.price > 0 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return item.brand && item.price > 20.01 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return item.brand && item.price > 50.01 && item.price <= finalPriceVal;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === "" &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.brand && item.price > 100.01;
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "20"
+      ) {
+        finalPriceVal = "20";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 0 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "50"
+      ) {
+        finalPriceVal = "50";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 20.01 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "100"
+      ) {
+        finalPriceVal = "100";
+        return (
+          item.brand &&
+          item.category &&
+          item.price > 100.01 &&
+          item.price <= finalPriceVal
+        );
+      } else if (
+        item.brand === brandsVal &&
+        catVal === item.category &&
+        priceVal === "100.01"
+      ) {
+        finalPriceVal = "100.01";
+        return item.brand && item.category && item.price > 100.01;
+      }
+    });
 
-      // * einzelne Filter:
-      // item.category === catVal||
-      // (item.price > 0 && item.price <= priceVal) ||
-      // (item.price > 20.01 && item.price <= priceVal) ||
-      // (item.price > 50.01 && item.price <= priceVal) ||
-      // item.price > 100.01 ||
-      // item.brand === brandsVal
+    if (filter.length === 0 && (catVal || priceVal || brandsVal)) {
+      filter = ["noResult"];
+    }
 
-      // category
-      // brand
-      // price20
-      // price50
-      // price100
-      // price100.01
+    // (catVall || priceVal || brandsVal) => Prüft, ob mindestens eine der Variablen einen Wert hat, der nicht gleich einem leeren String ist. Einen Wert erhalten sie, wenn sie im Popup ausgewählt werden und die API auch einen passenden Wert zurückgibt.
 
-      // category + price20
-      // category + price50
-      // category + price100
-      // category + price100.01
-
-      // brand + price20
-      // brand + price50
-      // brand + price100
-      // brand + price100.01
-
-      // category + brand
-
-      // category + price20 + brand
-      // category + price50 + brand
-      // category + price100 + brand
-      // category + price100.01 + brand
-    );
     setFilteredData(filter);
-    // console.log(filter);
   }, [catVal, priceVal, brandsVal]);
-  console.log(filteredData);
+
+  // ! Filter Product Data by User Input
+  useEffect(() => {
+    const filter = productsData?.products?.filter((item) => {
+      return item.title.toLowerCase().includes(userInput.toLowerCase());
+    });
+
+    setFilteredData(filter);
+  }, [userInput, productsData]);
 
   return (
     <>

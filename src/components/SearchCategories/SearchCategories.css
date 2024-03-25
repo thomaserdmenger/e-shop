@@ -1,0 +1,6 @@
+.search-categories div {
+  margin-left: 30px;
+  box-shadow: 0 10px 20px 1px rgba(188, 188, 188, 0.325);
+  height: 150px;
+  overflow: hidden;
+}

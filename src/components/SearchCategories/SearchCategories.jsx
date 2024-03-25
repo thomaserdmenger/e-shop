@@ -26,7 +26,12 @@ const SearchCategories = () => {
 
   useEffect(() => {
     const newArray = productsData?.products.filter((item) => {
-      return item.title.toLowerCase().includes(userInput.toLowerCase());
+      return (
+        item.title.toLowerCase().includes(userInput.toLowerCase()) ||
+        item.description.toLowerCase().includes(userInput.toLowerCase()) ||
+        item.brand.toLowerCase().includes(userInput.toLowerCase())
+        // !Achtung nochmal verbessern! description und brand funktionieren nicht!
+      );
       // console.log(item);
       //   if (item.title.toLowerCase().includes(userInput.toLowerCase())) {
       // console.log(item.category);
@@ -36,17 +41,19 @@ const SearchCategories = () => {
     const categories = newArray.map((item) => item.category);
     // console.log(categories);
     const uniqueCategories = [...new Set(categories)];
-    console.log(uniqueCategories);
+    // console.log(uniqueCategories);
     setTest(uniqueCategories);
+
+    // test.map((item) => console.log(item));
   }, [userInput]);
 
   return (
-    <section>
+    <section className="search-categories">
       <FetchProducts />
-      <div>
-        {/* {userInput.length > 0 &&
-          newArray.map((item, index) => <p>{item.cateogry}</p>)} */}
-        {/* {userInput.length > 0 &&
+      {/* <div>
+        {userInput.length > 0 &&
+          newArray.map((item, index) => <p>{item.cateogry}</p>)}
+        {userInput.length > 0 &&
           productsData?.products.map((item, index) =>
             item.title.toLowerCase().includes(userInput.toLowerCase()) ||
             item.description.toLowerCase().includes(userInput.toLowerCase()) ||
@@ -55,8 +62,12 @@ const SearchCategories = () => {
             ) : (
               ""
             )
-          )} */}
-        <p>{userInput.length > 0 && test}</p>
+          )}
+      </div> */}
+      <div>
+        {userInput.length > 0 &&
+          test.map((item, index) => <p key={index}>{item}</p>)}
+        {/* <p>{userInput.length > 0 && test}</p> */}
       </div>
     </section>
   );

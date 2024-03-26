@@ -1,0 +1,16 @@
+.backToTop {
+  position: relative;
+}
+
+.backToTop svg {
+  position: absolute;
+  bottom: 5rem;
+  right: 50%;
+  height: 3rem;
+  cursor: pointer;
+  fill: var(--color-darkblue);
+}
+
+.backToTop.dark svg {
+  fill: var(--color-dm-blue);
+}

@@ -2,6 +2,8 @@ import "./Favorite.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { localStorageContext, darkModeContext } from "../../context/Context";
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
 const Favorite = () => {
   // global context for favorites
@@ -39,10 +41,11 @@ const Favorite = () => {
     setFavorites(updatedFavorites);
     window.localStorage.setItem("DATA", JSON.stringify(updatedFavorites));
   };
+  console.log(localStorage);
 
   return (
     <main>
-      <section className="favorites">
+      <section className={darkMode ? "favorites dark" : "favorites"}>
         <div className="favorites__heading">
           {/* heart-icon */}
           <svg
@@ -60,44 +63,58 @@ const Favorite = () => {
         {/* render favorite item from local storage */}
         {favorites.map((item, index) => {
           return (
-            <article className="favorites__container" key={index}>
-              <div className="favorites__container-imgtext">
-                {/* render img */}
-                <img src={item.image} alt={`image of ${item.title}`} />
-                {/* render text */}
-                <div
-                  className={
-                    darkMode ? "favorites__text dark" : "favorites__text"
-                  }
-                >
-                  <h4>{item.title}</h4>
-                  <p>$ {item.price}</p>
-                  <div className="favorites__rate">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+            <article
+              key={index}
+              className={
+                darkMode ? "favorites__container dark" : "favorites__container"
+              }
+            >
+              {/* //# id noch in locale storage object speichern */}
+              <Link to={`/details/${item.id}`}>
+                <div className="favorites__container-imgtext">
+                  {/* render img */}
+                  <img src={item.image} alt={`image of ${item.title}`} />
+
+                  {/* render text */}
+                  <div
+                    className={
+                      darkMode ? "favorites__text dark" : "favorites__text"
+                    }
+                  >
+                    <h4>{item.title}</h4>
+                    <p>$ {item.price}</p>
+                    <div
+                      className={
+                        darkMode ? "favorites__rate dark" : "favorites__rate"
+                      }
                     >
-                      <g clipPath="url(#clip0_1_1364)">
-                        <path
-                          d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"
-                          fill="#FDC34E"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_1_1364">
-                          <rect width="16" height="16" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                    <p>{item.rating}</p>
+                      {/* star icon */}
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#clip0_1_1364)">
+                          <path
+                            d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"
+                            fill="#FDC34E"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1_1364">
+                            <rect width="16" height="16" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <p>{item.rating}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              {/* render icon bin */}
+              {/* bin icon */}
               <svg
                 onClick={() => handleRemove(index)}
                 xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +126,7 @@ const Favorite = () => {
           );
         })}
       </section>
+      <BackToTopBtn />
       <Navbar />
     </main>
   );

@@ -1,73 +1,64 @@
 import "./SearchCategories.css";
 import { useContext, useEffect, useState } from "react";
-import { userInputContext, fetchProductsContext } from "../../context/Context";
+import {
+  userInputContext,
+  fetchProductsContext,
+  catValContext,
+} from "../../context/Context";
 import FetchProducts from "../FetchProducts/FetchProducts";
+import { Link } from "react-router-dom";
 
 const SearchCategories = () => {
   // *Global Context für userInput und für Products Fetch
   const { userInput, setUserInput } = useContext(userInputContext);
+
+  // *Global Context für Products Fetch
   const { productsData, setProductsData } = useContext(fetchProductsContext);
 
-  const [test, setTest] = useState([]);
+  // * Globa Context für Kategorie Value catVal
+  const { catVal, setCatVal } = useContext(catValContext);
 
-  //   productsData?.products.map((item, index) => (
-  //    return item;
-  //   ))
-
-  //   if (
-  //     productsData?.products.map((item, index) => item.title.includes(userInput))
-  //   ) {
-  //     console.log(item.category);
-  //   }
-
-  //   if (item.title.includes(userInput)) {
-  //     console.log(item.category)
-  //     }
+  //   * useState für Categories
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const newArray = productsData?.products.filter((item) => {
       return (
         item.title.toLowerCase().includes(userInput.toLowerCase()) ||
         item.description.toLowerCase().includes(userInput.toLowerCase()) ||
-        item.brand.toLowerCase().includes(userInput.toLowerCase())
-        // !Achtung nochmal verbessern! description und brand funktionieren nicht!
+        item.brand.toLowerCase().includes(userInput.toLowerCase()) ||
+        item.category.toLowerCase().includes(userInput.toLowerCase())
       );
-      // console.log(item);
-      //   if (item.title.toLowerCase().includes(userInput.toLowerCase())) {
-      // console.log(item.category);
-      // setTest(item.category);
-      //   }
     });
+    // hier werden alle gefilterten Kategorien gespeichert in categories
     const categories = newArray.map((item) => item.category);
-    // console.log(categories);
-    const uniqueCategories = [...new Set(categories)];
-    // console.log(uniqueCategories);
-    setTest(uniqueCategories);
 
-    // test.map((item) => console.log(item));
+    // hier werden alle doppelten Kategorieren in categories rausgenommen
+    const uniqueCategories = [...new Set(categories)];
+
+    // hier speichern wir dann die uniquen Categories in unserem State
+    setCategories(uniqueCategories);
   }, [userInput]);
 
+  console.log(catVal);
   return (
     <section className="search-categories">
       <FetchProducts />
-      {/* <div>
+      <div className={userInput.length > 0 ? "show" : ""}>
         {userInput.length > 0 &&
-          newArray.map((item, index) => <p>{item.cateogry}</p>)}
-        {userInput.length > 0 &&
-          productsData?.products.map((item, index) =>
-            item.title.toLowerCase().includes(userInput.toLowerCase()) ||
-            item.description.toLowerCase().includes(userInput.toLowerCase()) ||
-            item.brand.toLowerCase().includes(userInput.toLowerCase()) ? (
-              <p> {item.category}</p>
-            ) : (
-              ""
-            )
-          )}
-      </div> */}
-      <div>
-        {userInput.length > 0 &&
-          test.map((item, index) => <p key={index}>{item}</p>)}
-        {/* <p>{userInput.length > 0 && test}</p> */}
+          categories.map((item, index) => (
+            <Link
+              to="/search"
+              key={index}
+              onClick={() => {
+                setCatVal(item);
+                setUserInput("");
+              }}
+            >
+              <p>{item.replace("-", " ")}</p>
+              <p>Categories</p>
+            </Link>
+          ))}
       </div>
     </section>
   );

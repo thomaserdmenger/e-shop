@@ -24,7 +24,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
   background-color: #f9f9f9;
   min-width: 10rem;
@@ -40,6 +40,14 @@
   box-shadow: 0 4px 40px #f7f1f113;
 }
 
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
   display: block;
+} */
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

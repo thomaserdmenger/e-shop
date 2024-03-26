@@ -1,11 +1,12 @@
 .show-categories {
-  margin-left: 30px;
+  margin-left: 1.25rem;
   box-shadow: 0 10px 20px 1px rgba(188, 188, 188, 0.325);
   max-height: 130px;
 
   width: 75%;
   overflow: hidden;
   padding: 0 0.7rem;
+  border-radius: 12px;
 }
 
 .show-categories a {
@@ -20,4 +21,5 @@
 
 .search-categories p {
   text-transform: capitalize;
+  margin-block: 0.2rem;
 }

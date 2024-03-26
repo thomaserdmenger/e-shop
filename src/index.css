@@ -73,6 +73,7 @@ h1 {
   font-family: poppins-bold;
   font-size: 2rem;
   font-weight: 700;
+  color: var(--color-heading-darkgray);
 }
 
 h2 {

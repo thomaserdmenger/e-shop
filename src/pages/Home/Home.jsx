@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <h1>Find your favourite Product</h1>
       <div className="search-filter">
         <Search />
         <Link to="/search">

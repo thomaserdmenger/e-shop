@@ -40,7 +40,6 @@ const SearchCategories = () => {
     setCategories(uniqueCategories);
   }, [userInput]);
 
-  console.log(catVal);
   return (
     <section className="search-categories">
       <FetchProducts />

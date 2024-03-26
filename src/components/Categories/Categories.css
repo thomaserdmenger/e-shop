@@ -1,9 +1,11 @@
 .categories {
   margin-top: 1.3rem;
+  margin-bottom: 2rem;
 }
 
 .categories img {
   height: 6rem;
+  width: 6rem;
   overflow: hidden;
   box-shadow: 0 4px 40px #00000013;
   border-radius: 10px;
@@ -38,6 +40,6 @@
 .categories-flex p {
   text-transform: capitalize;
   font-size: 0.75rem;
-  width: 5rem;
+  width: 6rem;
   text-align: center;
 }

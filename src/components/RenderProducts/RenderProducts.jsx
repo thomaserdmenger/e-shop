@@ -78,6 +78,15 @@ const RenderProducts = ({ noResult }) => {
                   <svg
                     width="24"
                     height="24"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleFavorite({
+                        title: item.title,
+                        price: item.price,
+                        rating: item.rating,
+                        image: item.thumbnail
+                      });
+                    }}
                     viewBox="0 0 24 24"
                     fill=""
                     xmlns="http://www.w3.org/2000/svg">

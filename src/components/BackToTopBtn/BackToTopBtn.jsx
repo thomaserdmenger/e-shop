@@ -16,7 +16,7 @@ const BackToTopBtn = () => {
     window.addEventListener("scroll", handleVisibility);
 
     return () => {
-      window.removeEventListener("scrol", handleVisibility);
+      window.removeEventListener("scroll", handleVisibility);
     };
   }, []);
 

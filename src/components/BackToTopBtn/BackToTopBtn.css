@@ -1,16 +1,28 @@
 .backToTop {
   position: relative;
+  cursor: pointer;
+
+  margin-bottom: 1rem;
 }
 
 .backToTop svg {
-  position: absolute;
-  bottom: 5rem;
-  right: 50%;
-  height: 3rem;
-  cursor: pointer;
-  fill: var(--color-darkblue);
+  position: fixed;
+  bottom: 7rem;
+
+  right: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+  fill: var(--color-gray1);
+  background-color: white;
+  border-radius: 100%;
 }
 
 .backToTop.dark svg {
-  fill: var(--color-dm-blue);
+  /* fill: var(--color-dm-blue); */
+  fill: var(--color-gray1);
+  /* background-color: unset; */
+
+  background-color: var(--color-dm-black);
+  box-shadow: 0 0 40px var(--color-dm-box-shadow);
 }

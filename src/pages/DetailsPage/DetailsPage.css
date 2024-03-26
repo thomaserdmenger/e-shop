@@ -1,5 +1,6 @@
 .product {
   padding: 3.125rem 1.25rem;
+  padding-block-end: 5rem;
 }
 
 .product p {

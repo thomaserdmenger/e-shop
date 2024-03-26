@@ -1,7 +1,7 @@
 .popup {
   min-height: 100vh;
   padding-inline: 1rem;
-  padding-block: 2rem;
+  padding-block: 1rem;
 }
 
 .popup__header {
@@ -23,6 +23,7 @@
   fill: var(--color-darkblue);
   position: absolute;
   right: 1rem;
+  cursor: pointer;
 }
 
 .popup__icon-close.dark {

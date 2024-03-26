@@ -73,6 +73,7 @@ h1 {
   font-family: poppins-bold;
   font-size: 2rem;
   font-weight: 700;
+  color: var(--color-heading-darkgray);
 }
 
 h2 {
@@ -117,7 +118,7 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  padding-bottom: 4rem;
+  /* padding-bottom: 4rem; */
 }
 
 .render article {
@@ -200,5 +201,5 @@ a {
 .render-btn {
   display: flex;
   justify-content: center;
-  margin-bottom: 7rem;
+  /* margin-bottom: 7rem; */
 }

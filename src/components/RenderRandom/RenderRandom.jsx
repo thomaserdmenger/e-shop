@@ -36,9 +36,7 @@ const RenderRandom = () => {
         {productsData?.products?.slice(0, 6).map((item, index) => (
           <Link to={`/details/${item.id}`} key={index}>
             <article>
-              {/* Product image */}
               <img src={item.thumbnail} alt="item" />
-              {/* Title + Price + Plus-Icon */}
               <div className={darkMode ? "render-title dark" : "render-title"}>
                 <section>
                   <h4>{item.title}</h4>
@@ -89,7 +87,6 @@ const RenderRandom = () => {
                   </div>
                 </section>
               </div>
-              {/* Star + Rating */}
             </article>
           </Link>
         ))}

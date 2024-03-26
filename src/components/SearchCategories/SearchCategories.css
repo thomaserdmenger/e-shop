@@ -1,4 +1,4 @@
-.show {
+.show-categories {
   margin-left: 30px;
   box-shadow: 0 10px 20px 1px rgba(188, 188, 188, 0.325);
   max-height: 130px;
@@ -8,12 +8,12 @@
   padding: 0 0.7rem;
 }
 
-.show a {
+.show-categories a {
   display: flex;
   justify-content: space-between;
 }
 
-.show p:nth-of-type(2) {
+.show-categories p:nth-of-type(2) {
   font-style: italic;
   color: var(--color-gray1);
 }

@@ -44,7 +44,7 @@ const SearchCategories = () => {
   return (
     <section className="search-categories">
       <FetchProducts />
-      <div className={userInput.length > 0 ? "show" : ""}>
+      <div className={userInput.length > 0 ? "show-categories" : ""}>
         {userInput.length > 0 &&
           categories.map((item, index) => (
             <Link

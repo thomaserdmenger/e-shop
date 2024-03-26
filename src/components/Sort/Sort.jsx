@@ -79,9 +79,9 @@ const Sort = () => {
       <article className={darkMode ? "dropdown dark" : "dropdown"}>
         <p onClick={chooseSort}>{sortName}</p>
         <div
-          className={`${sortItem ? "show" : "hide"} ${
-            darkMode ? "dropdown-content dark" : "dropdown-content"
-          }`}
+          className={`${
+            sortItem ? "dropdown-content show" : "dropdown-content hide"
+          } ${darkMode ? "dropdown-content dark" : "dropdown-content"}`}
         >
           <p onClick={sortLowPrice}>Lowest Price</p>
           <p onClick={sortHighPrice}>Highest Price</p>

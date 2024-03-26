@@ -11,9 +11,11 @@ import {
   filteredDataContext,
   fetchProductsContext,
   catValContext,
-  darkModeContext
+  darkModeContext,
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
+import BackButton from "../../components/BackButton/BackButton";
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
 const SearchPage = () => {
   // Import Context to Toggle Popup
@@ -230,6 +232,7 @@ const SearchPage = () => {
           </div>
           <Sort />
           <RenderProducts />
+          <BackToTopBtn />
           <Navbar />
         </main>
       )}

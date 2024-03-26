@@ -1,12 +1,13 @@
 .favorites {
-  padding-bottom: 5rem;
-}
-.favorites svg {
-  fill: var(--color-darkblue);
-  width: 1.25rem;
-  height: 1.25rem;
+  padding-bottom: 7rem;
 }
 
+/* all svg */
+.favorites svg {
+  fill: var(--color-darkblue);
+}
+
+/* heart icon svg + h2 */
 .favorites__heading {
   display: flex;
   flex-direction: column;
@@ -17,27 +18,45 @@
   padding-block: 3rem;
 }
 
-.favorites__heading svg {
-  height: 3rem;
-  width: 3rem;
-}
-
 .favorites h2 {
   text-align: center;
   color: var(--color-darkblue);
 }
 
+/* darkmode h2 + all svg */
+.favorites.dark h2,
+.favorites.dark svg {
+  color: var(--color-dm-blue);
+  fill: var(--color-dm-blue);
+}
+
+/* only svg in heading */
+.favorites__heading svg {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+/* product card */
 .favorites__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-inline: 1.25rem;
-
-  /* margin-right: 3rem; */
+  box-shadow: 0 4px 40px #00000013;
+  border-radius: 12px;
+  overflow: hidden;
+  padding-right: 1.5rem;
+  margin-inline: 1.25rem;
   margin-bottom: 2rem;
 }
 
+/* dark mode for product card */
+.favorites__container.dark {
+  background-color: var(--color-dm-black);
+  box-shadow: 0 0 40px var(--color-dm-box-shadow);
+}
+
+/* product card without bin icon svg */
 .favorites__container-imgtext {
   display: flex;
   align-items: center;
@@ -45,26 +64,43 @@
 }
 
 .favorites__container img {
-  border-radius: 12px;
   height: 10rem;
   width: 10rem;
-  /* object-position: center; */
-  /* object-fit: cover; */
   object-fit: cover;
 }
 
+/* text container */
 .favorites__text {
   display: flex;
   flex-direction: column;
-  /* justify-content: ; */
+  gap: 0.2rem;
 }
 
+.favorites__text p {
+  color: var(--color-darkblue);
+  font-family: poppins-semibold;
+}
+
+.favorites__text.dark p {
+  color: var(--color-dm-blue);
+}
+
+/* rating container */
 .favorites__rate {
   display: flex;
   align-items: center;
+  gap: 0.3rem;
   margin-left: -0.4rem;
 }
 
-.favorites-title p {
-  color: var(--color-darkblue);
+.favorites__rate p,
+.favorites__rate.dark p {
+  color: var(--color-gray1);
+  font-size: 0.8rem;
+}
+
+/* bin icon svg */
+.favorites__container svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }

@@ -1,6 +1,23 @@
-.search-categories div {
+.show {
   margin-left: 30px;
   box-shadow: 0 10px 20px 1px rgba(188, 188, 188, 0.325);
-  height: 150px;
+  max-height: 130px;
+
+  width: 75%;
   overflow: hidden;
+  padding: 0 0.7rem;
+}
+
+.show a {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show p:nth-of-type(2) {
+  font-style: italic;
+  color: var(--color-gray1);
+}
+
+.search-categories p {
+  text-transform: capitalize;
 }

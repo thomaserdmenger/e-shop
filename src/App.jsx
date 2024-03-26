@@ -13,7 +13,8 @@ import {
   darkModeContext,
   togglePopupContext,
   filteredDataContext,
-  catValContext
+  catValContext,
+  localStorageContext
 } from "./context/Context";
 import Favorite from "./pages/Favorite/Favorite";
 
@@ -48,6 +49,9 @@ function App() {
   // Global State for Category Values
   const [catVal, setCatVal] = useState("");
 
+  // Global State for Favorite Items
+  const [favorites, setFavorites] = useState([]);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(!loading);
@@ -68,23 +72,26 @@ function App() {
                   <filteredDataContext.Provider
                     value={{ filteredData, setFilteredData }}>
                     <catValContext.Provider value={{ catVal, setCatVal }}>
-                      {loading ? (
-                        <Loading />
-                      ) : (
-                        <BrowserRouter>
-                          <Routes>
-                            <Route path="/home" element={<Home />} />
-                            <Route path="/loading" element={<Loading />} />
-                            <Route path="/" element={<Onboarding />} />
-                            <Route path="/search" element={<SearchPage />} />
-                            <Route
-                              path="/details/:id"
-                              element={<DetailsPage />}
-                            />
-                            <Route path="/favorite" element={<Favorite />} />
-                          </Routes>
-                        </BrowserRouter>
-                      )}
+                      <localStorageContext.Provider
+                        value={{ favorites, setFavorites }}>
+                        {loading ? (
+                          <Loading />
+                        ) : (
+                          <BrowserRouter>
+                            <Routes>
+                              <Route path="/home" element={<Home />} />
+                              <Route path="/loading" element={<Loading />} />
+                              <Route path="/" element={<Onboarding />} />
+                              <Route path="/search" element={<SearchPage />} />
+                              <Route
+                                path="/details/:id"
+                                element={<DetailsPage />}
+                              />
+                              <Route path="/favorite" element={<Favorite />} />
+                            </Routes>
+                          </BrowserRouter>
+                        )}
+                      </localStorageContext.Provider>
                     </catValContext.Provider>
                   </filteredDataContext.Provider>
                 </togglePopupContext.Provider>

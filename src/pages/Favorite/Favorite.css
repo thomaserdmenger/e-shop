@@ -1,0 +1,11 @@
+.favorites {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-inline: 1.25rem;
+  gap: 1rem;
+}
+
+.favorites__delete-icon {
+  width: 20px;
+  height: 20px;
+}

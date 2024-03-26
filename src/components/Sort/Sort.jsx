@@ -15,7 +15,7 @@ const Sort = () => {
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
 
   // state for chosen sort mechanism
-  const [sortName, setSortName] = useState("choose");
+  const [sortName, setSortName] = useState("Choose");
 
   // Global State for DarkMode Context
   const { darkMode } = useContext(darkModeContext);

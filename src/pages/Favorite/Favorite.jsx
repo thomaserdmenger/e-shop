@@ -69,12 +69,12 @@ const Favorite = () => {
                 darkMode ? "favorites__container dark" : "favorites__container"
               }
             >
-              {/* //# id noch in locale storage object speichern */}
               <Link to={`/details/${item.id}`}>
                 <div className="favorites__container-imgtext">
-                  {/* render img */}
-                  <img src={item.image} alt={`image of ${item.title}`} />
-
+                  <div className="favorites__container-img">
+                    {/* render img */}
+                    <img src={item.image} alt={`image of ${item.title}`} />
+                  </div>
                   {/* render text */}
                   <div
                     className={
@@ -116,6 +116,7 @@ const Favorite = () => {
 
               {/* bin icon */}
               <svg
+                className="favorites__icon-bin"
                 onClick={() => handleRemove(index)}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"

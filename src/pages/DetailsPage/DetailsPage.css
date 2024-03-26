@@ -13,7 +13,7 @@
   text-align: center;
   margin-block-start: -0.6rem;
   text-align: center;
-  padding-inline: 2rem;
+  padding-inline: 3rem;
 }
 
 /* Product Card Area: */
@@ -34,6 +34,7 @@
 }
 
 .product img {
+  height: 25rem;
   object-position: center;
   object-fit: cover;
   margin-bottom: 1.5rem;
@@ -66,6 +67,7 @@
 .product-rating {
   margin-bottom: 1rem;
   padding: 0 1rem;
+  margin-left: -0.1rem;
 }
 
 .product-price h2 {
@@ -113,6 +115,7 @@
   top: 0.5rem;
   right: 0.5rem;
   fill: var(--color-darkblue);
+  cursor: pointer;
 }
 
 .product-card__heart-container.dark {

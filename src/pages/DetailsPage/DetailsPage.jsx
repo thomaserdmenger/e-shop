@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import {
   fetchProductsContext,
   darkModeContext,
-  localStorageContext
+  localStorageContext,
 } from "../../context/Context";
 
 const DetailsPage = () => {
@@ -70,19 +70,22 @@ const DetailsPage = () => {
                 price: singleProduct.price,
                 rating: singleProduct.rating,
                 image: singleProduct.thumbnail,
-                id: singleProduct.id
+                id: singleProduct.id,
               });
             }}
             className={
               darkMode
                 ? "product-card__heart-container dark"
                 : "product-card__heart-container"
-            }>
+            }
+          >
+            {/* heart icon */}
             <svg
               width="20"
               height="20"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512">
+              viewBox="0 0 512 512"
+            >
               <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
             </svg>
           </div>
@@ -99,7 +102,8 @@ const DetailsPage = () => {
                 height="24"
                 viewBox="0 0 16 16"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <rect
                   x="-4"
                   y="-4"
@@ -126,7 +130,8 @@ const DetailsPage = () => {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <rect width="24" height="24" rx="3" fill="#828B9A" />
                 <g clipPath="url(#clip0_3610_316)">
                   <path
@@ -155,7 +160,8 @@ const DetailsPage = () => {
               height="16"
               viewBox="0 0 16 16"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g clipPath="url(#clip0_1_1364)">
                 <path
                   d="M8.00008 11.3333L4.08141 13.7266L5.14674 9.25996L1.66008 6.27329L6.23674 5.90663L8.00008 1.66663L9.76341 5.90663L14.3407 6.27329L10.8534 9.25996L11.9187 13.7266L8.00008 11.3333Z"

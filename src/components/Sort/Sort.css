@@ -44,10 +44,10 @@
   display: block;
 } */
 
-.show {
+.dropdown-content.show {
   display: block;
 }
 
-.hide {
+.dropdown-content.hide {
   display: none;
 }

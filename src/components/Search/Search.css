@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.searchbar__input.dark {
+  color: var(--color-gray1);
+}
+
 .searchbar__icon-container1 {
   position: absolute;
   top: 1.2rem;

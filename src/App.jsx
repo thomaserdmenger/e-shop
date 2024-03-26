@@ -14,34 +14,28 @@ import {
   togglePopupContext,
   filteredDataContext,
   catValContext,
-  localStorageContext
+  localStorageContext,
 } from "./context/Context";
 import Favorite from "./pages/Favorite/Favorite";
 
 function App() {
   // State for Loading Page
   const [loading, setLoading] = useState(true);
-  // console.log(loading);
 
   // Global State for Fetching Products Data with fetchProductsContext
   const [productsData, setProductsData] = useState([]);
-  // console.log(productsData);
 
   // Global State for Fetching Categogies Data with fetchCategoriesContext
   const [categoriesData, setCategoriesData] = useState([]);
-  // console.log(categoriesData);
 
   // Global State for User Input from Search Bar from Search Component
   const [userInput, setUserInput] = useState("");
-  // console.log(userInput);
 
   // Global State for Dark Mode
   const [darkMode, setDarkMode] = useState(false);
-  // console.log(darkMode);
 
   // Global State to Toogle Popup from Home Page and Search Page
   const [togglePopup, setTogglePopup] = useState(false);
-  // console.log(togglePopup);
 
   // Global State for filtered Data
   const [filteredData, setFilteredData] = useState([]);
@@ -62,18 +56,23 @@ function App() {
     <>
       <div className={darkMode ? "wrapper dark" : "wrapper"}>
         <fetchProductsContext.Provider
-          value={{ productsData, setProductsData }}>
+          value={{ productsData, setProductsData }}
+        >
           <fetchCategoriesContext.Provider
-            value={{ categoriesData, setCategoriesData }}>
+            value={{ categoriesData, setCategoriesData }}
+          >
             <userInputContext.Provider value={{ userInput, setUserInput }}>
               <darkModeContext.Provider value={{ darkMode, setDarkMode }}>
                 <togglePopupContext.Provider
-                  value={{ togglePopup, setTogglePopup }}>
+                  value={{ togglePopup, setTogglePopup }}
+                >
                   <filteredDataContext.Provider
-                    value={{ filteredData, setFilteredData }}>
+                    value={{ filteredData, setFilteredData }}
+                  >
                     <catValContext.Provider value={{ catVal, setCatVal }}>
                       <localStorageContext.Provider
-                        value={{ favorites, setFavorites }}>
+                        value={{ favorites, setFavorites }}
+                      >
                         {loading ? (
                           <Loading />
                         ) : (

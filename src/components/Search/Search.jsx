@@ -1,10 +1,15 @@
 import "./Search.css";
-import { filteredDataContext, userInputContext } from "../../context/Context";
+import {
+  darkModeContext,
+  filteredDataContext,
+  userInputContext,
+} from "../../context/Context";
 import { useContext } from "react";
 
 const Search = () => {
   const { userInput, setUserInput } = useContext(userInputContext);
   const { setFilteredData } = useContext(filteredDataContext);
+  const { darkMode } = useContext(darkModeContext);
 
   // Func to reset filteredData and userInput
   const reset = () => {
@@ -15,7 +20,7 @@ const Search = () => {
   return (
     <form className="searchbar" onSubmit={(e) => e.preventDefault()}>
       <input
-        className="searchbar__input"
+        className={darkMode ? "searchbar__input dark" : "searchbar__input"}
         type="text"
         name="user-input"
         id="user-input"

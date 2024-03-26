@@ -42,7 +42,6 @@ const Favorite = () => {
     setFavorites(updatedFavorites);
     window.localStorage.setItem("DATA", JSON.stringify(updatedFavorites));
   };
-  console.log(localStorage);
 
   return (
     <main>

@@ -35,7 +35,8 @@ const Favorite = () => {
   };
 
   // func to remove favorite items from local storage
-  const handleRemove = (index) => {
+  const handleRemove = (e, index) => {
+    e.preventDefault();
     const updatedFavorites = [...favorites];
     updatedFavorites.splice(index, 1);
     setFavorites(updatedFavorites);
@@ -60,32 +61,30 @@ const Favorite = () => {
           <h2>Your favorite items</h2>
         </div>
 
-        {/* render favorite item from local storage */}
-        {favorites.map((item, index) => {
-          return (
-            <article
-              key={index}
-              className={
-                darkMode ? "favorites__container dark" : "favorites__container"
-              }
-            >
-              <Link to={`/details/${item.id}`}>
-                <div className="favorites__container-imgtext">
-                  <div className="favorites__container-img">
-                    {/* render img */}
-                    <img src={item.image} alt={`image of ${item.title}`} />
-                  </div>
-                  {/* render text */}
-                  <div
-                    className={
-                      darkMode ? "favorites__text dark" : "favorites__text"
-                    }
-                  >
-                    <h4>{item.title}</h4>
+        <div>
+          {/* render favorite items from local storage */}
+          {favorites.map((item, index) => {
+            return (
+              <Link
+                to={`/details/${item.id}`}
+                className={
+                  darkMode
+                    ? "favorites__productcard dark"
+                    : "favorites__productcard"
+                }
+                key={index}
+              >
+                {/* render img */}
+                <img src={item.image} alt="" />
+
+                {/* render text */}
+                <div>
+                  <div>
+                    <h3>{item.title}</h3>
                     <p>$ {item.price}</p>
                     <div
                       className={
-                        darkMode ? "favorites__rate dark" : "favorites__rate"
+                        darkMode ? "favorites_rating dark" : "favorites_rating"
                       }
                     >
                       {/* star icon */}
@@ -111,21 +110,21 @@ const Favorite = () => {
                       <p>{item.rating}</p>
                     </div>
                   </div>
+
+                  {/* bin icon */}
+                  <svg
+                    className="favorites__icon-bin"
+                    onClick={(e) => handleRemove(e, index)}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
+                  </svg>
                 </div>
               </Link>
-
-              {/* bin icon */}
-              <svg
-                className="favorites__icon-bin"
-                onClick={() => handleRemove(index)}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-              >
-                <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
-              </svg>
-            </article>
-          );
-        })}
+            );
+          })}
+        </div>
       </section>
       <BackToTopBtn />
       <Navbar />

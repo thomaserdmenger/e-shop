@@ -3,6 +3,10 @@
   padding-block-end: 5rem;
 }
 
+.product {
+  text-transform: capitalize;
+}
+
 .product p {
   color: var(--color-gray2);
 }

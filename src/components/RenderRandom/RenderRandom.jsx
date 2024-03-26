@@ -29,7 +29,7 @@ const RenderRandom = () => {
   return (
     <>
       <FetchProducts />
-      <h3>Popular</h3>
+      <h3 className="render-random__heading">Popular</h3>
       <section
         style={{ paddingBlockEnd: "8rem" }}
         className={darkMode ? " dark render" : " render"}>

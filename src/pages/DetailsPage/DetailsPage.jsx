@@ -69,7 +69,8 @@ const DetailsPage = () => {
                 title: singleProduct.title,
                 price: singleProduct.price,
                 rating: singleProduct.rating,
-                image: singleProduct.thumbnail
+                image: singleProduct.thumbnail,
+                id: singleProduct.id
               });
             }}
             className={

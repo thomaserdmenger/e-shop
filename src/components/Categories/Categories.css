@@ -1,12 +1,12 @@
 .categories img {
-  width: 6rem;
+  /* width: 6rem; */
   height: 6rem;
   overflow: hidden;
   /* box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2); */
   /* filter: drop-shadow(0 4px 40px #00000010);*/
   box-shadow: 0 4px 40px #00000013;
   border-radius: 10px;
-  object-fit: fill;
+  object-fit: contain;
 }
 
 .categories-flex {
@@ -30,6 +30,7 @@
   justify-content: center;
   gap: 0.5rem;
   width: 100px;
+  cursor: pointer;
 }
 
 .categories-flex p {

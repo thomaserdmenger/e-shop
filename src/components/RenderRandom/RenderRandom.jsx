@@ -1,6 +1,10 @@
 import "./RenderRandom.css";
-import { useContext } from "react";
-import { fetchProductsContext, darkModeContext } from "../../context/Context";
+import { useContext, useEffect } from "react";
+import {
+  fetchProductsContext,
+  darkModeContext,
+  localStorageContext
+} from "../../context/Context";
 import FetchProducts from "../FetchProducts/FetchProducts";
 import { Link } from "react-router-dom";
 
@@ -11,10 +15,21 @@ const RenderRandom = () => {
   // Global State for Dark Mode Context
   const { darkMode } = useContext(darkModeContext);
 
+  // Gobal Context for Favorite Items
+  const { favorites, setFavorites } = useContext(localStorageContext);
+
+  const handleFavorite = (title) => {
+    setFavorites([...favorites, title]);
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem("DATA", JSON.stringify(favorites));
+  }, [favorites]);
+
   return (
     <>
       <FetchProducts />
-      <h3>Popular</h3>
+      <h3 className="render-random__heading">Popular</h3>
       <section
         style={{ paddingBlockEnd: "8rem" }}
         className={darkMode ? " dark render" : " render"}>
@@ -57,6 +72,15 @@ const RenderRandom = () => {
                 <svg
                   width="24"
                   height="24"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleFavorite({
+                      title: item.title,
+                      price: item.price,
+                      rating: item.rating,
+                      image: item.thumbnail
+                    });
+                  }}
                   viewBox="0 0 24 24"
                   fill=""
                   xmlns="http://www.w3.org/2000/svg">

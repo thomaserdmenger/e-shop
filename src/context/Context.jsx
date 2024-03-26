@@ -7,3 +7,4 @@ export const darkModeContext = createContext();
 export const togglePopupContext = createContext();
 export const filteredDataContext = createContext();
 export const catValContext = createContext();
+export const localStorageContext = createContext();

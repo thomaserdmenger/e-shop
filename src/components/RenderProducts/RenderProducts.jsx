@@ -180,7 +180,7 @@ const RenderProducts = ({ noResult }) => {
       )}
 
       {/* Load-More-Button for filtered Data, if more than 20 */}
-      {filteredData.length > 20 && (
+      {filteredData.length > 20 && loadItems <= 99 && (
         <div className="render-btn">
           <Link className="btn" onClick={() => setLoadItems(loadItems + 20)}>
             Load More

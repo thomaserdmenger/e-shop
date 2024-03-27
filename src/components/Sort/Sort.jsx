@@ -4,6 +4,7 @@ import {
   fetchProductsContext,
   filteredDataContext,
   darkModeContext,
+  sortContext,
 } from "../../context/Context";
 
 // props for filteredData and setFilteredData from SearchPage.jsx
@@ -15,7 +16,7 @@ const Sort = () => {
   const { filteredData, setFilteredData } = useContext(filteredDataContext);
 
   // state for chosen sort mechanism
-  const [sortName, setSortName] = useState("Choose");
+  const { sortName, setSortName } = useContext(sortContext);
 
   // Global State for DarkMode Context
   const { darkMode } = useContext(darkModeContext);

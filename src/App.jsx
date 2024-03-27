@@ -15,6 +15,9 @@ import {
   filteredDataContext,
   catValContext,
   localStorageContext,
+  priceValContext,
+  brandValContext,
+  sortContext,
 } from "./context/Context";
 import Favorite from "./pages/Favorite/Favorite";
 
@@ -40,11 +43,20 @@ function App() {
   // Global State for filtered Data
   const [filteredData, setFilteredData] = useState([]);
 
+  // Global State for Favorite Items
+  const [favorites, setFavorites] = useState([]);
+
   // Global State for Category Values
   const [catVal, setCatVal] = useState("");
 
-  // Global State for Favorite Items
-  const [favorites, setFavorites] = useState([]);
+  // Global State for Price Values
+  const [priceVal, setPriceVal] = useState("");
+
+  // Global State for Brand Values
+  const [brandsVal, setBrandsVal] = useState("");
+
+  // Global State for Sort Func
+  const [sortName, setSortName] = useState("Choose");
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,27 +82,48 @@ function App() {
                     value={{ filteredData, setFilteredData }}
                   >
                     <catValContext.Provider value={{ catVal, setCatVal }}>
-                      <localStorageContext.Provider
-                        value={{ favorites, setFavorites }}
+                      <priceValContext.Provider
+                        value={{ priceVal, setPriceVal }}
                       >
-                        {loading ? (
-                          <Loading />
-                        ) : (
-                          <BrowserRouter>
-                            <Routes>
-                              <Route path="/home" element={<Home />} />
-                              <Route path="/loading" element={<Loading />} />
-                              <Route path="/" element={<Onboarding />} />
-                              <Route path="/search" element={<SearchPage />} />
-                              <Route
-                                path="/details/:id"
-                                element={<DetailsPage />}
-                              />
-                              <Route path="/favorite" element={<Favorite />} />
-                            </Routes>
-                          </BrowserRouter>
-                        )}
-                      </localStorageContext.Provider>
+                        <brandValContext.Provider
+                          value={{ brandsVal, setBrandsVal }}
+                        >
+                          <sortContext.Provider
+                            value={{ sortName, setSortName }}
+                          >
+                            <localStorageContext.Provider
+                              value={{ favorites, setFavorites }}
+                            >
+                              {loading ? (
+                                <Loading />
+                              ) : (
+                                <BrowserRouter>
+                                  <Routes>
+                                    <Route path="/home" element={<Home />} />
+                                    <Route
+                                      path="/loading"
+                                      element={<Loading />}
+                                    />
+                                    <Route path="/" element={<Onboarding />} />
+                                    <Route
+                                      path="/search"
+                                      element={<SearchPage />}
+                                    />
+                                    <Route
+                                      path="/details/:id"
+                                      element={<DetailsPage />}
+                                    />
+                                    <Route
+                                      path="/favorite"
+                                      element={<Favorite />}
+                                    />
+                                  </Routes>
+                                </BrowserRouter>
+                              )}
+                            </localStorageContext.Provider>
+                          </sortContext.Provider>
+                        </brandValContext.Provider>
+                      </priceValContext.Provider>
                     </catValContext.Provider>
                   </filteredDataContext.Provider>
                 </togglePopupContext.Provider>

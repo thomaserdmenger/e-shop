@@ -12,6 +12,8 @@ import {
   fetchProductsContext,
   catValContext,
   darkModeContext,
+  priceValContext,
+  brandValContext,
 } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 import BackButton from "../../components/BackButton/BackButton";
@@ -34,10 +36,10 @@ const SearchPage = () => {
   const { catVal, setCatVal } = useContext(catValContext);
 
   // State for Price Buttons
-  const [priceVal, setPriceVal] = useState("");
+  const { priceVal, setPriceVal } = useContext(priceValContext);
 
   // State for Brand Buttons
-  const [brandsVal, setBrandsVal] = useState("");
+  const { brandsVal, setBrandsVal } = useContext(brandValContext);
 
   // State for Dark Mode from Context
   const { darkMode } = useContext(darkModeContext);
@@ -216,14 +218,7 @@ const SearchPage = () => {
   return (
     <section className="searchpage">
       {togglePopup ? (
-        <FilterPopup
-          catVal={catVal}
-          setCatVal={setCatVal}
-          priceVal={priceVal}
-          setPriceVal={setPriceVal}
-          brandsVal={brandsVal}
-          setBrandsVal={setBrandsVal}
-        />
+        <FilterPopup />
       ) : (
         <main>
           <div className="search-filter">

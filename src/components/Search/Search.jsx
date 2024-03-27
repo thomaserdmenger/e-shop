@@ -1,8 +1,12 @@
 import "./Search.css";
 import {
+  brandValContext,
+  catValContext,
   darkModeContext,
   filteredDataContext,
+  priceValContext,
   userInputContext,
+  sortContext,
 } from "../../context/Context";
 import { useContext } from "react";
 
@@ -10,11 +14,19 @@ const Search = () => {
   const { userInput, setUserInput } = useContext(userInputContext);
   const { setFilteredData } = useContext(filteredDataContext);
   const { darkMode } = useContext(darkModeContext);
+  const { setCatVal } = useContext(catValContext);
+  const { setPriceVal } = useContext(priceValContext);
+  const { setBrandsVal } = useContext(brandValContext);
+  const { setSortName } = useContext(sortContext);
 
   // Func to reset filteredData and userInput
   const reset = () => {
     setFilteredData([]);
     setUserInput("");
+    setCatVal("");
+    setPriceVal("");
+    setBrandsVal("");
+    setSortName("Choose");
   };
 
   return (

@@ -1,25 +1,19 @@
-import FetchCategories from "../FetchCategories/FetchCategories";
-import "./Categories.css";
-import { useContext } from "react";
-import {
-  fetchCategoriesContext,
-  catValContext,
-  userInputContext,
-} from "../../context/Context";
-import { categoriesImgData } from "../../assets/categoriesImgData/categoriesImgData";
-import { Link } from "react-router-dom";
+import FetchCategories from "../FetchCategories/FetchCategories"
+import "./Categories.css"
+import { useContext } from "react"
+import { fetchCategoriesContext, catValContext, userInputContext } from "../../context/Context"
+import { categoriesImgData } from "../../assets/categoriesImgData/categoriesImgData"
+import { Link } from "react-router-dom"
 
 const Categories = () => {
   // * useContext für FetchCategories
-  const { categoriesData, setCategoriesData } = useContext(
-    fetchCategoriesContext
-  );
+  const { categoriesData, setCategoriesData } = useContext(fetchCategoriesContext)
 
   // * useContext für User Input
-  const { userInput, setUserInput } = useContext(userInputContext);
+  const { userInput, setUserInput } = useContext(userInputContext)
 
   // * useContext für Kategorie Value catVal
-  const { catVal, setCatVal } = useContext(catValContext);
+  const { catVal, setCatVal } = useContext(catValContext)
 
   return (
     <section className="categories">
@@ -31,14 +25,13 @@ const Categories = () => {
               to="/search"
               key={index}
               onClick={() => {
-                setCatVal(item);
-                setUserInput("");
-              }}
-            >
+                setCatVal(item.slug)
+                setUserInput("")
+              }}>
               <div>
                 {/* passende Images aus eigenem Array in categoriesImgData */}
-                <img src={categoriesImgData[item]} alt="" />
-                <p>{item.replace("-", " ")}</p>
+                <img src={categoriesImgData[item.slug]} alt="" />
+                <p>{item.name.replace("-", " ")}</p>
               </div>
             </Link>
           ))
@@ -47,7 +40,7 @@ const Categories = () => {
         )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Categories

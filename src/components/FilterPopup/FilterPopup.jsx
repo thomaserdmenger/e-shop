@@ -1,5 +1,5 @@
-import "./FilterPopup.css";
-import BackButton from "../BackButton/BackButton";
+import "./FilterPopup.css"
+import BackButton from "../BackButton/BackButton"
 import {
   fetchCategoriesContext,
   togglePopupContext,
@@ -7,55 +7,55 @@ import {
   catValContext,
   priceValContext,
   brandValContext,
-} from "../../context/Context";
-import { useContext } from "react";
+} from "../../context/Context"
+import { useContext } from "react"
 
 const FilterPopup = () => {
   // Import Context with Categories Data
-  const { categoriesData } = useContext(fetchCategoriesContext);
+  const { categoriesData } = useContext(fetchCategoriesContext)
 
   // Import Context to Toggle Popup
-  const { togglePopup, setTogglePopup } = useContext(togglePopupContext);
+  const { togglePopup, setTogglePopup } = useContext(togglePopupContext)
 
   // Import DarkMode Context
-  const { darkMode } = useContext(darkModeContext);
+  const { darkMode } = useContext(darkModeContext)
 
   // State for Categories Buttons
-  const { catVal, setCatVal } = useContext(catValContext);
+  const { catVal, setCatVal } = useContext(catValContext)
 
   // State for Price Buttons
-  const { priceVal, setPriceVal } = useContext(priceValContext);
+  const { priceVal, setPriceVal } = useContext(priceValContext)
 
   // State for Brand Buttons
-  const { brandsVal, setBrandsVal } = useContext(brandValContext);
+  const { brandsVal, setBrandsVal } = useContext(brandValContext)
 
   const handlePriceClick = (value) => {
     if (priceVal === value) {
-      setPriceVal("");
+      setPriceVal("")
     } else {
-      setPriceVal(value);
+      setPriceVal(value)
     }
-  };
+  }
 
   const handleCatClick = (value) => {
     if (catVal === value) {
-      setCatVal("");
+      setCatVal("")
     } else {
-      setCatVal(value);
+      setCatVal(value)
     }
-  };
+  }
 
   const handleBrandClick = (value) => {
     if (brandsVal === value) {
-      setBrandsVal("");
+      setBrandsVal("")
     } else {
-      setBrandsVal(value);
+      setBrandsVal(value)
     }
-  };
+  }
 
   const handleCloseClick = () => {
-    setTogglePopup(false);
-  };
+    setTogglePopup(false)
+  }
 
   return (
     <main className="popup">
@@ -66,8 +66,7 @@ const FilterPopup = () => {
           className={darkMode ? "popup__icon-close dark" : "popup__icon-close"}
           onClick={handleCloseClick}
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
+          viewBox="0 0 512 512">
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z" />
         </svg>
       </div>
@@ -81,17 +80,16 @@ const FilterPopup = () => {
                 key={index}
                 onClick={(e) => handleCatClick(e.target.value)}
                 className={
-                  catVal === cat
+                  catVal === cat.slug
                     ? darkMode
                       ? "popup__button--selected dark"
                       : "popup__button--selected"
                     : "popup__button"
                 }
-                value={cat}
-              >
-                {cat.replace("-", " ")}
+                value={cat.slug}>
+                {cat.name.replace("-", " ")}
               </button>
-            );
+            )
           })}
         </div>
       </section>
@@ -106,8 +104,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected "
                 : "popup__button"
-            }
-          >
+            }>
             0 - 20 €
           </button>
           <button
@@ -118,8 +115,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected "
                 : "popup__button"
-            }
-          >
+            }>
             20 - 50 €
           </button>
           <button
@@ -130,8 +126,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected "
                 : "popup__button"
-            }
-          >
+            }>
             50 - 100 €
           </button>
           <button
@@ -142,8 +137,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected "
                 : "popup__button"
-            }
-          >
+            }>
             über 100 €
           </button>
         </div>
@@ -159,8 +153,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Apple
           </button>
           <button
@@ -171,8 +164,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Samsung
           </button>
           <button
@@ -183,8 +175,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             L'Oreal Paris
           </button>
           <button
@@ -195,8 +186,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Huawei
           </button>
           <button
@@ -207,8 +197,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Microsoft Surface
           </button>
           <button
@@ -219,8 +208,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Golden
           </button>
           <button
@@ -231,8 +219,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             IELGY
           </button>
           <button
@@ -243,8 +230,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Stainless
           </button>
           <button
@@ -255,8 +241,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             LouisWill
           </button>
           <button
@@ -267,8 +252,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             BRAVE BULL
           </button>
           <button
@@ -279,8 +263,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             Xiangle
           </button>
           <button
@@ -291,8 +274,7 @@ const FilterPopup = () => {
                   ? "popup__button--selected dark"
                   : "popup__button--selected"
                 : "popup__button"
-            }
-          >
+            }>
             JIEPOLLY
           </button>
         </div>
@@ -300,15 +282,14 @@ const FilterPopup = () => {
       <div className="popup__button-container">
         <button
           onClick={() => {
-            setTogglePopup(!togglePopup);
+            setTogglePopup(!togglePopup)
           }}
-          className={darkMode ? "btn dark btn--popup" : "btn btn--popup"}
-        >
+          className={darkMode ? "btn dark btn--popup" : "btn btn--popup"}>
           Apply Filter
         </button>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default FilterPopup;
+export default FilterPopup
